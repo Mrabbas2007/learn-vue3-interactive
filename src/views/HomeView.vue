@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { Activity, Check, ArrowLeft, MousePointer2 } from '@lucide/vue'
+import { Activity, ArrowLeft, MousePointer2 } from '@lucide/vue'
 import VueParticleOrb from '../components/common/VueParticleOrb.vue'
 
 // «گوی را بچرخانید» بعد از اولین تعامل یا ۸ ثانیه محو می‌شود.
@@ -91,88 +91,82 @@ const chapters = [
 <template>
   <div class="max-w-6xl mx-auto px-4 py-6 sm:py-10">
     <!-- ========================================================
-         بخش هیرو حرفه‌ای (Modern Animated Hero Section)
+         بخش هیرو با پس‌زمینه شیشه‌ای مدرن (Glassmorphic Hero)
          ======================================================== -->
     <section
-      class="relative rounded-3xl bg-gradient-to-b from-white/90 via-emerald-50/20 to-white/60 border border-slate-200/80 shadow-xs p-6 sm:p-10 lg:p-12 mb-16 overflow-hidden"
+      class="relative mb-16 sm:mb-20 rounded-3xl p-6 sm:p-10 lg:p-12 bg-white/60 backdrop-blur-xl border border-white/80 shadow-[0_10px_35px_-5px_rgba(16,185,129,0.06),0_1px_3px_0_rgba(0,0,0,0.02)] overflow-hidden"
     >
-      <!-- پس‌زمینه شبکه‌ای ظریف (Subtle Grid Pattern) -->
+      <!-- خط هایلایت انعکاس نور بالای شیشه -->
       <div
-        class="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px]"
+        class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent pointer-events-none"
       ></div>
 
-      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-        <!-- ستون متن‌ها و اکشن‌ها (در RTL سمت راست) -->
-        <div class="lg:col-span-7 text-center lg:text-right space-y-5">
-          <!-- برچسب کوچک بالا -->
-          <div
-            class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-2xs"
-          >
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>کارگاه عملی و عمیق فرانت‌اند</span>
-            <span class="text-emerald-400">•</span>
-            <span class="font-mono">Tailwind CSS v4</span>
+      <!-- پس‌زمینه‌ی نرم شیشه‌ای: شبکه‌ی نقطه‌ای محو + هاله‌های نور زمردی -->
+      <div aria-hidden="true" class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div
+          class="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:18px_18px]"
+        ></div>
+        <div
+          class="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-emerald-400/15 blur-3xl animate-glow"
+        ></div>
+        <div
+          class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-teal-400/15 blur-3xl animate-glow"
+        ></div>
+      </div>
+
+      <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        <!-- ستون متن (در RTL سمت راست) -->
+        <div class="lg:col-span-7 text-center lg:text-right">
+          <!-- kicker خطی، بدون کپسول -->
+          <div class="inline-flex items-center gap-3 text-sm font-bold text-emerald-600">
+            <span class="h-px w-8 bg-emerald-500/70" aria-hidden="true"></span>
+            <span>کارگاه تعاملی Vue 3</span>
           </div>
 
-          <!-- عنوان اصلی با جلوگیری از شکست کلمه Vue 3 -->
+          <!-- تیتر ضربه‌ای -->
           <h1
-            class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.3] sm:leading-[1.25]"
+            class="mt-5 text-4xl sm:text-5xl lg:text-[3.4rem] font-black text-slate-900 tracking-tight leading-[1.3] sm:leading-[1.25]"
           >
-            یادگیری پروژه‌محور و مفهومی
-            <br class="hidden sm:inline" />
+            Vue 3 را عمیق بفهم،
+            <br />
             <span
               class="bg-gradient-to-l from-emerald-600 via-teal-500 to-emerald-600 bg-clip-text text-transparent"
             >
-              Vue 3 & Composition API
+              نه فقط حفظ کن.
             </span>
           </h1>
 
-          <!-- متن معرفی -->
-          <p class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0">
-            طراحی شده برای یادگیری اصولی و بدون حفظ کردن؛ از درک واکنش‌پذیری و چرخه‌ی حیات تا ساخت
-            دایرکتیوهای سفارشی، همگی همراه با آزمایشگاه‌های تعاملی و کدهای خودتوضیح فارسی.
+          <!-- معرفی -->
+          <p
+            class="mt-5 text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0"
+          >
+            از سیستم واکنش‌پذیری تا چرخه‌ی حیات و دستورهای سفارشی — همه‌چیز با آزمایشگاه‌های تعاملی،
+            شبیه‌سازهای زنده و کدهای خودتوضیح فارسی. برای کسی که می‌خواهد «چرا» را بفهمد، نه فقط
+            «چگونه» را.
           </p>
 
           <!-- دکمه‌های اکشن -->
-          <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-3">
+          <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-3">
             <router-link
               to="/basics"
-              class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition-all shadow-sm hover:shadow-emerald-500/20 hover:shadow-lg active:scale-98 flex items-center gap-2 cursor-pointer"
+              class="px-7 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition-all shadow-sm hover:shadow-emerald-500/25 hover:shadow-lg active:scale-98 flex items-center gap-2 cursor-pointer"
             >
-              <span>شروع یادگیری از گام اول (مفاهیم پایه)</span>
+              <span>شروع یادگیری از گام اول</span>
               <ArrowLeft class="w-4 h-4" />
             </router-link>
             <router-link
               to="/lifecycle"
-              class="px-5 py-3 bg-white hover:bg-slate-50 text-slate-700 font-bold text-sm rounded-xl border border-slate-200 transition-all shadow-2xs hover:border-emerald-300 flex items-center gap-2 cursor-pointer"
+              class="px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-700 font-bold text-sm rounded-xl border border-slate-200 transition-all shadow-2xs hover:border-emerald-300 flex items-center gap-2 cursor-pointer"
             >
               <Activity class="w-4 h-4 text-emerald-600" />
               <span>شبیه‌ساز چرخه حیات</span>
             </router-link>
           </div>
-
-          <!-- نشانگرهای سریع (Stats Badges) -->
-          <div
-            class="pt-4 border-t border-slate-100 flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 text-xs text-slate-500 font-medium"
-          >
-            <div class="flex items-center gap-1.5">
-              <Check class="w-4 h-4 text-emerald-600 shrink-0" />
-              <span>۶ سرفصل جامع و کاربردی</span>
-            </div>
-            <div class="flex items-center gap-1.5">
-              <Check class="w-4 h-4 text-emerald-600 shrink-0" />
-              <span>بیش از ۲۰ آزمایشگاه تست زنده</span>
-            </div>
-            <div class="flex items-center gap-1.5">
-              <Check class="w-4 h-4 text-emerald-600 shrink-0" />
-              <span>سیستم Design Tokens</span>
-            </div>
-          </div>
         </div>
 
-        <!-- ستون انیمیشن سه بعدی Particle Orb (در RTL سمت چپ) -->
+        <!-- ستون انیمیشن سه‌بعدی Particle Orb (در RTL سمت چپ) -->
         <div class="relative lg:col-span-5 flex justify-center items-center">
-          <!-- هاله‌ی نرم پشت گوی برای جدا شدن از پس‌زمینه روشن -->
+          <!-- هاله‌ی نرم پشت گوی -->
           <div
             class="absolute inset-0 flex items-center justify-center pointer-events-none"
             aria-hidden="true"
@@ -182,17 +176,17 @@ const chapters = [
             ></div>
           </div>
           <VueParticleOrb @interact="onOrbInteract" />
-          <!-- راهنمای تعامل -->
+          <!-- راهنمای تعامل با گوی سه‌بعدی -->
           <Transition name="fade">
             <div
               v-if="showDragHint"
-              class="absolute inset-x-0 bottom-1 flex justify-center pointer-events-none"
+              class="absolute inset-x-0 -bottom-2 flex justify-center pointer-events-none"
             >
               <div
-                class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold text-slate-500 bg-white/80 backdrop-blur-sm border border-slate-200/80 shadow-2xs"
+                class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold text-slate-500 bg-white/80 backdrop-blur-sm border border-slate-200/80 shadow-2xs"
               >
                 <MousePointer2 class="w-3 h-3 text-emerald-600" />
-                <span>گوی را بچرخانید</span>
+                <span>گوی را با ماوس بچرخانید</span>
               </div>
             </div>
           </Transition>

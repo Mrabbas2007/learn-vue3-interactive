@@ -18,18 +18,27 @@ const navLinks = [
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
       <!-- لوگو و عنوان پروژه -->
-      <router-link to="/" class="flex items-center gap-2.5 group shrink-0">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white font-bold text-lg shadow-sm group-hover:scale-105 transition-transform">
-          V
+      <router-link to="/" class="flex items-center gap-3 group shrink-0">
+        <div class="w-9 h-9 rounded-xl bg-slate-900/5 border border-slate-200/80 p-1.5 flex items-center justify-center shadow-2xs group-hover:scale-105 group-hover:border-emerald-400 group-hover:bg-emerald-500/10 transition-all duration-300">
+          <!-- لوگوی رسمی و دقیق Vue.js -->
+          <svg
+            viewBox="0 0 261.76 226.69"
+            class="w-full h-full drop-shadow-xs"
+            aria-label="لوگوی Vue.js"
+          >
+            <path
+              d="M161.096.001l-30.225 52.351L100.647.001H-.005l130.877 226.688L261.749.001z"
+              fill="#41B883"
+            />
+            <path
+              d="M161.096.001l-30.225 52.351L100.647.001H52.346l78.526 136.01L209.398.001z"
+              fill="#34495E"
+            />
+          </svg>
         </div>
-        <div class="flex items-center gap-2">
-          <span class="font-extrabold text-slate-800 text-sm sm:text-base group-hover:text-emerald-600 transition-colors whitespace-nowrap">
-            کارگاه یادگیری Vue 3
-          </span>
-          <span class="hidden 2xl:inline-block px-2 py-0.5 text-[11px] font-semibold rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 whitespace-nowrap">
-            Tailwind v4
-          </span>
-        </div>
+        <span class="font-extrabold text-slate-800 text-sm sm:text-base group-hover:text-emerald-600 transition-colors whitespace-nowrap">
+          کارگاه یادگیری Vue 3
+        </span>
       </router-link>
 
       <!-- منوی دسکتاپ -->
