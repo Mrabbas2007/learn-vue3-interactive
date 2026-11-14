@@ -83,7 +83,7 @@ const chapters = [
     color: 'purple',
     description:
       'آشنایی با سیستم مدرن @theme در Tailwind CSS v4، متغیرهای معنایی، پالت رنگی و استایل‌دهی تمیز بدون فایل کانفیگ قدیمی.',
-    highlights: ['دایرکتیو @theme', 'Semantic Tokens', 'پالت رنگی برند', 'تایپوگرافی فارسی'],
+    highlights: ['دایرکتیو @theme', 'Semantic Tokens', 'پالت رنگی برند', 'توکن‌های گردی (Radius)'],
   },
 ]
 </script>
@@ -159,7 +159,7 @@ const chapters = [
               class="px-6 py-3.5 bg-surface-card hover:bg-slate-50 text-text-body font-bold text-sm rounded-xl border border-border-subtle transition-all shadow-2xs hover:border-emerald-300 flex items-center gap-2 cursor-pointer"
             >
               <Activity class="w-4 h-4 text-primary-text" />
-              <span>شبیه‌ساز چرخه حیات</span>
+              <span>شبیه‌ساز چرخه‌ی حیات</span>
             </router-link>
           </div>
         </div>

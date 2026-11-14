@@ -21,7 +21,7 @@ describe('App', () => {
     const text = wrapper.text()
 
     expect(text).toContain('مفاهیم پایه')
-    expect(text).toContain('چرخه حیات')
+    expect(text).toContain('چرخه‌ی حیات')
     expect(text).toContain('دستورها')
     expect(text).toContain('اصلاح‌کننده‌ها')
     expect(text).toContain('تفاوت‌ها')

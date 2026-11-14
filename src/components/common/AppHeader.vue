@@ -13,7 +13,7 @@ const menuButton = ref(null)
 const navLinks = [
   { path: '/', label: 'خانه' },
   { path: '/basics', label: 'مفاهیم پایه' },
-  { path: '/lifecycle', label: 'چرخه حیات' },
+  { path: '/lifecycle', label: 'چرخه‌ی حیات' },
   { path: '/directives', label: 'دستورها' },
   { path: '/modifiers', label: 'اصلاح‌کننده‌ها' },
   { path: '/compare', label: 'تفاوت‌ها' },

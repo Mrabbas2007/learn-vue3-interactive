@@ -60,7 +60,7 @@ async function copyText(text) {
     <!-- هدر صفحه -->
     <div class="mb-8">
       <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary-text border border-emerald-200 dark:border-emerald-500/30 mb-3">
-        <span>سیستم طراحی</span>
+        <span>گام ۶ از نقشه راه</span>
         <span>•</span>
         <span>معماری Tailwind CSS v4</span>
       </div>
@@ -68,7 +68,7 @@ async function copyText(text) {
         دیزاین توکن‌ها (Design Tokens) در Tailwind v4
       </h1>
       <p class="text-text-body mt-2 text-sm sm:text-base leading-relaxed">
-        دیزاین توکن‌ها، کوچک‌ترین متغیرهای بنیادین یک دیزاین سیستم هستند (رنگ‌ها، فاصله‌ها، گوشه‌ها، فونت‌ها).
+        دیزاین توکن‌ها، بنیادی‌ترین اجزای سازنده‌ی یک دیزاین سیستم هستند (رنگ‌ها، فاصله‌ها، گوشه‌ها، فونت‌ها).
         در Tailwind v4 این توکن‌ها بدون نیاز به فایل جاوااسکریپت، مستقیماً درون بلوک <code class="font-mono text-primary-text bg-primary-light px-1 py-0.5 rounded font-bold">@theme</code> تعریف می‌شوند.
       </p>
     </div>
@@ -144,9 +144,9 @@ async function copyText(text) {
 
     <!-- توکن‌های گردی و فونت -->
     <ConceptCard
-      title="۳. توکن‌های فرم، تایپوگرافی و گوشه‌ها"
+      title="۳. توکن‌های گردی لبه‌ها (Radius Tokens)"
       badge="Typography & Radius"
-      description="توکن‌های فونت فارسی و گوشه‌ها برای المان‌های مختلف."
+      description="توکن‌های گردی گوشه‌ها برای المان‌های مختلف (کارت، دکمه و بَج)."
     >
       <template #demo>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">

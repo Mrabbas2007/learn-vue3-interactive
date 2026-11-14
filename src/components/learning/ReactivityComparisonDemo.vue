@@ -67,7 +67,7 @@ function incrementRef() {
           <span>متغیر واکنش‌پذیر Vue با ref()</span>
         </h3>
         <p class="text-xs text-text-muted mb-3 leading-relaxed">
-          روی دکمه کلیک کنید؛ پروکسی Vue بلافاصله تغییر را متوجه شده و قالب صفحه را همگام می‌سازد.
+          روی دکمه کلیک کنید؛ سیستم واکنش‌پذیری Vue بلافاصله تغییر را متوجه شده و قالب صفحه را همگام می‌سازد.
         </p>
 
         <div class="flex flex-wrap items-center gap-2 mb-3">

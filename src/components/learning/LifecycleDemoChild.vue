@@ -70,7 +70,7 @@ onBeforeUnmount(() => {
 })
 
 onUnmounted(() => {
-  log('onUnmounted', 'unmount', 'کامپوننت به طور کامل از صفحه (DOM) پاک شد و حافظه آزاد گردید.')
+  log('onUnmounted', 'unmount', 'کامپوننت به‌طور کامل از صفحه (DOM) پاک شد و حافظه آزاد گردید.')
 })
 </script>
 
@@ -96,7 +96,7 @@ onUnmounted(() => {
       <code class="bg-black/20 px-1.5 py-0.5 rounded font-mono text-emerald-200 dark:text-emerald-300">onBeforeUpdate</code>
       و
       <code class="bg-black/20 px-1.5 py-0.5 rounded font-mono text-emerald-200 dark:text-emerald-300">onUpdated</code>
-      را به صورت زنده ببینید:
+      را به‌صورت زنده ببینید:
     </p>
 
     <div class="flex items-center gap-4">

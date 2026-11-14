@@ -28,14 +28,14 @@ const suggestions = [
     </h1>
 
     <p class="text-sm sm:text-base text-text-muted leading-relaxed mb-2">
-      آدرسی که باز کردی وجود ندارد یا جابه‌جا شده است:
+      آدرسی که باز کرده‌اید وجود ندارد یا جابه‌جا شده است:
       <code class="text-xs bg-surface-subtle px-1.5 py-0.5 rounded border border-border-subtle">{{
         route.fullPath
       }}</code>
     </p>
 
     <p class="text-sm text-text-muted mb-8">
-      از یکی از ایستگاه‌های زیر ادامه بده:
+      از یکی از ایستگاه‌های زیر ادامه دهید:
     </p>
 
     <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">

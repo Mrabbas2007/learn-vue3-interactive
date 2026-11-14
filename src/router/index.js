@@ -26,7 +26,7 @@ const routes = [
     path: '/lifecycle',
     name: 'lifecycle',
     component: LifecycleView,
-    meta: { title: 'چرخه حیات — Lifecycle Hooks' },
+    meta: { title: 'چرخه‌ی حیات — Lifecycle Hooks' },
   },
   {
     path: '/directives',

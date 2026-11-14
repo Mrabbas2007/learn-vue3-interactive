@@ -21,7 +21,7 @@ const stages = [
     id: 'mount',
     title: '۲. ورود به صفحه (Mount)',
     hooks: ['onBeforeMount', 'onMounted'],
-    desc: 'المان به درخت DOM وصل می‌شود و در صفحه ظاهر می‌گردد (لحظه طلایی اتصال به سرور).',
+    desc: 'المان به درخت DOM وصل می‌شود و در صفحه ظاهر می‌گردد (لحظه طلایی برای درخواست داده از سرور).',
     icon: Layers,
     iconColor: 'text-teal-500',
   },

@@ -144,7 +144,7 @@ function handleTimerTick(data) {
     <!-- هدر صفحه -->
     <div class="mb-8">
       <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary-text border border-emerald-200 dark:border-emerald-500/30 mb-3">
-        <span>گام ویژه نقشه راه</span>
+        <span>گام ۲ از نقشه راه</span>
         <span>•</span>
         <span>حیات و ممات کامپوننت</span>
       </div>
@@ -160,7 +160,7 @@ function handleTimerTick(data) {
     <div class="p-5 sm:p-6 bg-gradient-to-r from-slate-900 via-slate-900 to-slate-900 text-white rounded-3xl border border-slate-800 shadow-md mb-8">
       <div class="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2">
         <Sparkles class="w-4 h-4 shrink-0 text-emerald-400" />
-        <span>استعاره‌ی صحنه تئاتر: لایف سایکل چیست؟</span>
+        <span>استعاره‌ی صحنه تئاتر: چرخه‌ی حیات چیست؟</span>
       </div>
       <h3 class="text-lg sm:text-xl font-bold mb-3 text-slate-100">
         یک کامپوننت چگونه روی صفحه به نمایش درمی‌آید؟
@@ -359,7 +359,7 @@ function handleTimerTick(data) {
       <template #callout>
         <CalloutBox type="warning" title="قانون طلایی اتصال به سرور (API Fetching)">
           بهترین جا برای صدا زدن API یا دانلود داده‌های اولیه صفحه کجاست؟<br />
-          پاسخ: هوک <code>onMounted</code> یا به صورت غیرهمگام در اسکریپت، تا کاربر قبل از لود شدن دیتای سرور با یک صفحه سفید یا یخ‌زده مواجه نشود.
+          پاسخ: داخل هوک <code>onMounted</code> (بعد از اولین رندر) یا با <code>async setup</code> و top-level await همراه <code>&lt;Suspense&gt;</code> اگر می‌خواهید صفحه تا آماده شدن داده منتظر بماند.
         </CalloutBox>
       </template>
     </ConceptCard>
@@ -370,7 +370,7 @@ function handleTimerTick(data) {
     <ConceptCard
       title="۳. آزمایشگاه نشت حافظه — چرا onUnmounted بسیار حیاتی است؟"
       badge="بهینه‌سازی منابع و RAM"
-      description="اگر یک تایمر (setInterval) یا ایونت اسکرول window بسازید و هنگام خروج کامپوننت آن را متوقف نکنید، در پس‌زمینه به کار خود ادامه می‌دهد و رم کاربر را می‌بلعد!"
+      description="اگر یک تایمر (setInterval) یا رویداد اسکرول window بسازید و هنگام خروج کامپوننت آن را متوقف نکنید، در پس‌زمینه به کار خود ادامه می‌دهد و رم کاربر را می‌بلعد!"
     >
       <template #demo>
         <div class="space-y-3">
@@ -436,7 +436,7 @@ function handleTimerTick(data) {
       </template>
     </ConceptCard>
 
-    <!-- جدول تقلب هوک‌های چرخه حیات -->
+    <!-- جدول تقلب هوک‌های چرخه‌ی حیات -->
     <div class="my-8 bg-surface-card border border-border-subtle rounded-2xl p-5 shadow-xs">
       <h3 class="text-base font-bold text-text-main mb-3 flex items-center gap-2">
         <ClipboardList class="w-4 h-4 text-primary-text shrink-0" />
@@ -474,8 +474,8 @@ function handleTimerTick(data) {
             <tr>
               <td class="p-2.5 font-mono font-bold text-rose-700 dark:text-rose-300">onUnmounted</td>
               <td class="p-2.5 text-text-body">پس از حذف کامل از صفحه</td>
-              <td class="p-2.5 text-text-body">لغو تایمرها، پاک‌سازی ایونت‌های window، بستن سوکت‌ها</td>
-              <td class="p-2.5 font-mono text-text-subtle">unmounted (destroyed)</td>
+              <td class="p-2.5 text-text-body">لغو تایمرها، پاک‌سازی رویداد‌های window، بستن سوکت‌ها</td>
+              <td class="p-2.5 font-mono text-text-subtle">unmounted</td>
             </tr>
           </tbody>
         </table>
@@ -485,7 +485,7 @@ function handleTimerTick(data) {
     <!-- دکمه هدایت به صفحه بعدی -->
     <div class="mt-8 p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-500 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
       <div>
-        <h2 class="font-bold text-base">چرخه حیات را درک کردید؟</h2>
+        <h2 class="font-bold text-base">چرخه‌ی حیات را درک کردید؟</h2>
         <p class="text-xs sm:text-sm text-emerald-100 dark:text-emerald-300 mt-0.5">
           حالا که می‌دانید کامپوننت و المان‌ها چگونه متولد و آپدیت می‌شوند، وقت بررسی دقیق دایرکتیوهاست!
         </p>

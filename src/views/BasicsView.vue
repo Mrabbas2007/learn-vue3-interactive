@@ -71,7 +71,7 @@ function incrementReactiveDirect() {
 function testDestructureTrap() {
   let { age } = userReactive
   age += 10
-  destructureLog.value = `⚠️ تله Destructure: متغیر محلی age شد ${age}، اما چون رفرنس Proxy قطع شد، سن علی در تمپلیت (${userReactive.age}) تغییر نکرد!`
+  destructureLog.value = `⚠️ تله Destructure: متغیر محلی age شد ${age}، اما چون مقدار خصیصه کپی شد و ارتباطش با شیء واکنش‌پذیر قطع شد، سن علی در تمپلیت (${userReactive.age}) تغییر نکرد!`
 }
 
 // -------------------------------------------------------------
@@ -105,7 +105,7 @@ const manualModelDemo = ref('سلام دنیا')
         مفاهیم پایه و بنیادین Vue 3
       </h1>
       <p class="text-text-body mt-2 text-sm sm:text-base leading-relaxed">
-        قبل از اینکه به سراغ Directiveها و Modifierها برویم، باید بدانیم قلب تپنده Vue چطور کار می‌کند.
+        قبل از اینکه به سراغ دستورها (Directives) و اصلاح‌کننده‌ها (Modifiers) برویم، باید بدانیم قلب تپنده Vue چطور کار می‌کند.
         این صفحه به ساده‌ترین زبان ممکن برای افراد صفر توضیح می‌دهد.
       </p>
     </div>
@@ -131,8 +131,8 @@ const manualModelDemo = ref('سلام دنیا')
 
       <template #callout>
         <CalloutBox type="under-the-hood" title="چرا در اسکریپت .value می‌نویسیم اما در تمپلیت نمی‌نویسیم؟">
-          تابع <code>ref(0)</code> داده را درون یک آبجکت دارای ویژگی <code>.value</code> بسته‌بندی می‌کند تا جاوااسکریپت بتواند به کمک شیء <b>Proxy</b> زمان خواندن یا تغییر آن را تشخیص دهد.
-          اما کامپایلر Vue خودش به طور خودکار در <code>&lt;template&gt;</code> آن را باز (Unwrap) می‌کند.
+          تابع <code>ref(0)</code> مقدار را درون یک آبجکت با ویژگی <code>.value</code> می‌گذارد؛ Vue با getter/setter روی همین ویژگی (و برای مقدارهای آبجکتی با Proxy) خواندن و تغییر آن را ردیابی می‌کند.
+          اما کامپایلر Vue خودش به‌طور خودکار در <code>&lt;template&gt;</code> آن را باز (Unwrap) می‌کند.
         </CalloutBox>
       </template>
     </ConceptCard>
@@ -176,7 +176,7 @@ const manualModelDemo = ref('سلام دنیا')
               </div>
             </div>
             <p class="text-[11px] text-primary-text bg-primary-light p-1.5 rounded border border-brand-200">
-              توصیه رسمی: همیشه ref را انتخاب کنید چون امنیت بیشتری دارد و با Destructuring خراب نمی‌شود.
+              توصیه رسمی: پیش‌فرض را ref بگذارید؛ هر نوع داده‌ای را می‌پذیرد و برخلاف reactive با Destructure کردنِ خواصش واکنش‌پذیری را از دست نمی‌دهد.
             </p>
           </div>
 
@@ -223,7 +223,7 @@ const manualModelDemo = ref('سلام دنیا')
 
       <template #callout>
         <CalloutBox type="warning" title="قانون طلایی برای مبتدی‌ها">
-          توصیه رسمی تیم Vue این است که همیشه به عنوان پیش‌فرض از <code>ref()</code> استفاده کنید چون با Destructuring دچار قطعی واکنش‌پذیری نمی‌شود.
+          توصیه رسمی تیم Vue این است که <code>ref()</code> را API پیش‌فرض برای وضعیت واکنش‌پذیر انتخاب کنید؛ چون هر نوع داده‌ای را می‌پذیرد و خودِ مرجع ref پایدار می‌ماند، در حالی که <code>reactive()</code> با Destructure کردن واکنش‌پذیری‌اش را از دست می‌دهد.
         </CalloutBox>
       </template>
     </ConceptCard>
@@ -276,7 +276,7 @@ const manualModelDemo = ref('سلام دنیا')
 
       <template #callout>
         <CalloutBox type="tip" title="چرا از تابع معمولی استفاده نکنیم؟">
-          تابع معمولی با هر تغییر کوچک در صفحه دوباره اجرا می‌شود، اما <code>computed</code> فقط وقتی متغیرهای وابسته‌اش تغییر کنند دوباره اجرا خواهد شد.
+          تابع معمولی با هر بار رندر مجدد همین کامپوننت دوباره اجرا می‌شود، اما <code>computed</code> فقط وقتی متغیرهای وابسته‌اش تغییر کنند دوباره اجرا خواهد شد.
         </CalloutBox>
       </template>
     </ConceptCard>
@@ -327,7 +327,7 @@ const manualModelDemo = ref('سلام دنیا')
 
       <template #callout>
         <CalloutBox type="info" title="چرا دانستن این موضوع مهم است؟">
-          این به شما کمک می‌کند متوجه شوید چرا مودیفایرهایی مثل <code>v-model.lazy</code> کار می‌کنند؛ چون <code>.lazy</code> به سادگی ایونت را از <code>@input</code> به <code>@change</code> تغییر می‌دهد!
+          این به شما کمک می‌کند متوجه شوید چرا مودیفایرهایی مثل <code>v-model.lazy</code> کار می‌کنند؛ چون <code>.lazy</code> رویداد <code>@input</code> را به <code>@change</code> تغییر می‌دهد!
         </CalloutBox>
       </template>
     </ConceptCard>
@@ -344,7 +344,7 @@ const manualModelDemo = ref('سلام دنیا')
         to="/lifecycle"
         class="px-4 py-2 bg-surface-card text-primary-text hover:bg-emerald-50 text-xs sm:text-sm font-bold rounded-xl transition-all shadow-xs shrink-0 flex items-center gap-1.5"
       >
-        <span>رفتن به بخش چرخه حیات (Lifecycle)</span>
+        <span>رفتن به بخش چرخه‌ی حیات (Lifecycle)</span>
         <ArrowLeft class="w-4 h-4" />
       </router-link>
     </div>

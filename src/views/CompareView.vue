@@ -13,7 +13,7 @@ const lazyVsStopCode = `<!-- ۱) .lazy نحوه و زمان اتصال داده 
 <!-- ۲) .stop مانع از انتشار رویداد کلیک در DOM می‌شود -->
 <button @click.stop="doAction">اقدام</button>`
 
-const ifVsShowCode = `<!-- v-if: المان به طور کامل در درخت DOM حذف یا اضافه می‌شود -->
+const ifVsShowCode = `<!-- v-if: المان به‌طور کامل در درخت DOM حذف یا اضافه می‌شود -->
 <div v-if="isOpen">محتوای سنگین</div>
 
 <!-- v-show: المان همیشه در DOM هست، فقط display: none می‌گیرد -->
@@ -36,7 +36,7 @@ const isShowVisible = ref(true)
     <!-- هدر صفحه -->
     <div class="mb-8">
       <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary-text border border-emerald-200 dark:border-emerald-500/30 mb-3">
-        <span>گام ۴ از نقشه راه</span>
+        <span>گام ۵ از نقشه راه</span>
         <span>•</span>
         <span>تحلیل عمیق و تفاوت‌های چالش‌برانگیز</span>
       </div>
@@ -45,7 +45,7 @@ const isShowVisible = ref(true)
       </h1>
       <p class="text-text-body mt-2 text-sm sm:text-base leading-relaxed">
         بسیاری از سوالات مصاحبه‌های کاری و چالش‌های پروژه‌های واقعی به دلیل درک نکردن تفاوت‌های ظریف بین این دستورات است.
-        در این صفحه تفاوت آن‌ها را به صورت عملی و درون DOM بررسی می‌کنیم.
+        در این صفحه تفاوت آن‌ها را به‌صورت عملی و درون DOM بررسی می‌کنیم.
       </p>
     </div>
 
@@ -99,7 +99,7 @@ const isShowVisible = ref(true)
           <!-- کارت .stop -->
           <div class="bg-surface-card p-4 rounded-xl border border-border-subtle shadow-2xs">
             <div class="flex items-center justify-between mb-2">
-              <h3 class="font-bold text-xs text-indigo-800 dark:text-indigo-300">۲) مودیفایر @click.stop</h3>
+              <h3 class="font-bold text-xs text-indigo-800 dark:text-indigo-300">۳) مودیفایر @click.stop</h3>
               <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-500/30">
                 Event Handling
               </span>
@@ -152,8 +152,8 @@ const isShowVisible = ref(true)
       <template #callout>
         <CalloutBox type="info" title="جمع‌بندی تفاوت .lazy و .stop">
           <ul>
-            <li>• <b><code>.lazy</code></b> مربوط به <b>داده‌ها و متغیرها</b> است (می‌گوید چه زمانی مقدار ورودی وارد حافظه شود).</li>
-            <li>• <b><code>.stop</code></b> مربوط به <b>رویدادهای مرورگر</b> است (می‌گوید اجازه نده این کلیک بالا برود و پدر را فعال کند).</li>
+            <li>• <b><code>.lazy</code></b> مربوط به <b>داده‌ها و متغیرها</b> است (می‌گوید چه زمانی مقدار ورودی به متغیر state کپی شود).</li>
+            <li>• <b><code>.stop</code></b> مربوط به <b>رویدادهای مرورگر</b> است (می‌گوید اجازه ندهد این کلیک به والد برسد و آن را فعال کند).</li>
           </ul>
         </CalloutBox>
       </template>
@@ -165,7 +165,7 @@ const isShowVisible = ref(true)
     <ConceptCard
       title="۲. مقایسه v-if در برابر v-show — چه زمانی از کدام استفاده کنیم؟"
       badge="عملکرد و حافظه DOM"
-      description="تفاوت کلیدی این دو در این است که v-if عنصر را به طور کامل از درخت HTML حذف و نابود می‌کند، در حالی که v-show فقط با CSS آن را مخفی می‌سازد و حافظه داخلی آن را حفظ می‌کند."
+      description="تفاوت کلیدی این دو در این است که v-if عنصر را به‌طور کامل از درخت DOM حذف می‌کند، در حالی که v-show فقط با CSS آن را مخفی می‌سازد و المان و وضعیت داخلی‌اش در DOM باقی می‌ماند."
     >
       <template #demo>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -190,7 +190,7 @@ const isShowVisible = ref(true)
                 <VIfVsVShowChild type="if" />
               </div>
               <div v-else class="p-4 bg-surface-subtle border border-dashed border-border-medium rounded-xl text-xs text-text-muted text-center font-mono my-2">
-                &lt;!--v-if--&gt; (کامپوننت به طور کامل از DOM و حافظه حذف شد)
+                &lt;!--v-if--&gt; (کامپوننت به‌طور کامل از DOM و حافظه حذف شد)
               </div>
             </div>
 
@@ -264,8 +264,8 @@ const isShowVisible = ref(true)
                 </tr>
                 <tr>
                   <td class="p-2.5 font-bold text-text-body">هزینه تغییر وضعیت مکرر (Toggle)</td>
-                  <td class="p-2.5 text-text-body">بالا (تخریب و ایجاد دوباره لایف‌سایکل)</td>
-                  <td class="p-2.5 text-text-body">بسیار پایین (فقط تغییر کلاس یا استایل CSS)</td>
+                  <td class="p-2.5 text-text-body">بالا (حذف و ساخت دوباره‌ی کامپوننت و اجرای دوباره‌ی چرخه‌ی حیات)</td>
+                  <td class="p-2.5 text-text-body">بسیار پایین (فقط تغییر استایل درون‌خطی display)</td>
                 </tr>
                 <tr>
                   <td class="p-2.5 font-bold text-text-body">حفظ وضعیت داخلی فیلدها</td>

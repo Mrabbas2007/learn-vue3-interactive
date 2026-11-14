@@ -13,7 +13,7 @@ const vIfCode = `<p v-if="status === 'success'">موفقیت‌آمیز</p>
 <p v-else>خطا</p>`
 
 const vForCode = `<ul>
-  <!-- همیشه یک key منحصر‌به‌فرد مشخص کنید (ترجیحاً id نه index!) -->
+  <!-- همیشه یک key منحصربه‌فرد مشخص کنید (ترجیحاً id نه index!) -->
   <li v-for="(item, index) in items" :key="item.id">
     {{ index + 1 }}. {{ item.name }}
   </li>
@@ -25,8 +25,8 @@ const vBindCode = `<!-- روش آبجکتی: اگر isActive برابر true ب�
 <!-- روش سه‌تایی (Ternary) با آرایه: -->
 <div :class="[ isActive ? 'shadow-lg' : 'opacity-50' ]"></div>`
 
-const customDirectiveCode = `// ساخت دایرکتیو سفارشی با Lifecycle Hooks
-export default {
+const customDirectiveCode = `// ساخت دایرکتیو سفارشی محلی در <script setup>
+const vHighlight = {
   mounted(el, binding) {
     // هنگام اتصال به DOM
     el.style.backgroundColor = binding.value || '#fef08a'
@@ -91,7 +91,7 @@ function removeFruit(id) {
     <!-- هدر صفحه -->
     <div class="mb-8">
       <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary-text border border-emerald-200 dark:border-emerald-500/30 mb-3">
-        <span>گام ۲ از نقشه راه</span>
+        <span>گام ۳ از نقشه راه</span>
         <span>•</span>
         <span>دستورهای ویژه HTML</span>
       </div>
@@ -110,7 +110,7 @@ function removeFruit(id) {
     <ConceptCard
       title="۱. رندر شرطی: v-if و v-else-if و v-else"
       badge="v-if"
-      description="این دستورات عناصری از صفحه را بر اساس شرط‌های جاوااسکریپتی به طور کامل در درخت DOM حذف یا اضافه می‌کنند."
+      description="این دستورات عناصری از صفحه را بر اساس شرط‌های جاوااسکریپتی به‌طور کامل در درخت DOM حذف یا اضافه می‌کنند."
     >
       <template #demo>
         <div class="space-y-4">
@@ -164,7 +164,7 @@ function removeFruit(id) {
     <ConceptCard
       title="۲. رندر لیست‌ها با v-for و ضرورت حیاتی :key"
       badge="v-for"
-      description="برای رندر کردن آرایه‌ها یا آبجکت‌ها از v-for استفاده می‌کنیم. مشخص کردن :key یک شناسه یکتا به Vue می‌دهد تا المان‌ها را با حداکثر سرعت به‌روز کند."
+      description="برای رندر کردن آرایه‌ها یا آبجکت‌ها از v-for استفاده می‌کنیم. مشخص کردن :key یک شناسه یکتا به Vue می‌دهد تا هنگام تغییر لیست، المان‌های درست را بازاستفاده کند و وضعیت هر آیتم جابه‌جا نشود."
     >
       <template #demo>
         <div class="space-y-3">
@@ -218,7 +218,7 @@ function removeFruit(id) {
       </template>
 
       <template #callout>
-        <CalloutBox type="warning" title="چرا هرگز نباید index را به عنوان key استفاده کنیم؟">
+        <CalloutBox type="warning" title="چرا هرگز نباید index را به‌عنوان key استفاده کنیم؟">
           اگر آیتم‌های لیست شما قابلیت حذف، اضافه یا مرتب‌سازی دارند، استفاده از <code>index</code> باعث می‌شود Vue در تشخیص جابجایی المان‌ها اشتباه کند و حالت فیلدهای ورودی یا انیمیشن‌ها به هم بریزد. همیشه از یک فیلد یکتا مثل <code>item.id</code> استفاده کنید.
         </CalloutBox>
       </template>
@@ -259,7 +259,7 @@ function removeFruit(id) {
                 : 'bg-surface-subtle border-border-subtle text-text-muted',
             ]"
           >
-            <span>این باکس به صورت پویا با استفاده از <code>:class</code> استایل خود را تغییر می‌دهد!</span>
+            <span>این باکس به‌صورت پویا با استفاده از <code>:class</code> استایل خود را تغییر می‌دهد!</span>
           </div>
         </div>
       </template>
@@ -273,7 +273,7 @@ function removeFruit(id) {
     </ConceptCard>
 
     <!-- ========================================================= -->
-    <!-- درس ۴: دایرکتیو سفارشی (Custom Directives) و چرخه حیات آن -->
+    <!-- درس ۴: دایرکتیو سفارشی (Custom Directives) و چرخه‌ی حیات آن -->
     <!-- ========================================================= -->
     <ConceptCard
       title="۴. ساخت دایرکتیو سفارشی (Custom Directives)"
@@ -288,7 +288,7 @@ function removeFruit(id) {
             <p class="text-xs text-text-muted mb-2">به محض لود صفحه، کرسر داخل این فیلد قرار گرفته است:</p>
             <input
               v-focus
-              placeholder="من با v-focus به طور خودکار فوکوس شدم!"
+              placeholder="من با v-focus به‌طور خودکار فوکوس شدم!"
               class="w-full px-3 py-1.5 border border-border-medium rounded-lg text-sm focus:outline-brand-500"
             />
           </div>
@@ -345,7 +345,7 @@ function removeFruit(id) {
 
       <template #callout>
         <CalloutBox type="under-the-hood" title="قانون نام‌گذاری در script setup">
-          در کامپوزیشن ای‌پی‌آی وقتی از <code>&lt;script setup&gt;</code> استفاده می‌کنید، نیازی به ثبت دستی نیست! کافیست متغیر دایرکتیو با حرف کوچک <code>v</code> و سپس نام آن با حروف PascalCase شروع شود. به عنوان مثال:
+          در Composition API وقتی از <code>&lt;script setup&gt;</code> استفاده می‌کنید، نیازی به ثبت دستی نیست! کافیست نام متغیر با حرف کوچک <code>v</code> شروع شود و ادامه‌ی آن به‌صورت camelCase نوشته شود. به‌عنوان مثال:
           <br />
           <code>const vMyTooltip = { ... }</code> در تمپلیت به شکل <code>v-my-tooltip</code> در دسترس خواهد بود.
         </CalloutBox>

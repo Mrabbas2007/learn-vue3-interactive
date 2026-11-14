@@ -77,7 +77,7 @@ function handleEnterSubmit() {
     <!-- هدر صفحه -->
     <div class="mb-8">
       <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary-text border border-emerald-200 dark:border-emerald-500/30 mb-3">
-        <span>گام ۳ از نقشه راه</span>
+        <span>گام ۴ از نقشه راه</span>
         <span>•</span>
         <span>پسوندهای جادویی با نقطه (.)</span>
       </div>
@@ -107,7 +107,7 @@ function handleEnterSubmit() {
     <ConceptCard
       title="۱. جلوگیری از نشت رویداد به والد (@click.stop)"
       badge="@click.stop"
-      description="در جاوااسکریپت رویداد کلیک به صورت پیش‌فرض از عنصر فرزند به بالا منتشر می‌شود (Event Bubbling). با افزودن .stop انتشار رویداد در همان عنصر متوقف می‌شود."
+      description="در جاوااسکریپت رویداد کلیک به‌صورت پیش‌فرض از عنصر فرزند به بالا منتشر می‌شود (Event Bubbling). با افزودن .stop انتشار رویداد در همان عنصر متوقف می‌شود."
     >
       <template #demo>
         <div class="space-y-4">
@@ -162,7 +162,7 @@ function handleEnterSubmit() {
     <ConceptCard
       title="۲. جلوگیری از رفرش صفحه هنگام ارسال فرم (@submit.prevent)"
       badge="@submit.prevent"
-      description="فرم‌های HTML به طور پیش‌فرض صفحه را رفرش می‌کنند. با .prevent رفتار پیش‌فرض مهار شده و فرم به صورت SPA ارسال می‌شود."
+      description="فرم‌های HTML به‌طور پیش‌فرض صفحه را رفرش می‌کنند. با .prevent رفتار پیش‌فرض مهار شده و فرم به‌صورت SPA ارسال می‌شود."
     >
       <template #demo>
         <form @submit.prevent="handleFormSubmit" class="space-y-3">
@@ -260,7 +260,7 @@ function handleEnterSubmit() {
     <ConceptCard
       title="۴. مودیفایرهای v-model: پسوندهای .lazy و .number و .trim"
       badge="v-model.*"
-      description="به صورت پیش‌فرض با هر بار تایپ یک حرف، v-model متغیر را همگام می‌کند. مودیفایرها به شما امکان کنترل زمان و نوع داده را می‌دهند."
+      description="به‌صورت پیش‌فرض با هر بار تایپ یک حرف، v-model متغیر را همگام می‌کند. مودیفایرها به شما امکان کنترل زمان و نوع داده را می‌دهند."
     >
       <template #demo>
         <div class="space-y-4">
@@ -309,7 +309,7 @@ function handleEnterSubmit() {
               </div>
             </div>
             <p class="text-[11px] text-text-muted">
-              نکته: اگر متنی غیرعددی تایپ شود، Vue به صورت خودکار مقدار را به عنوان رشته اولیه نگه می‌دارد (Fallback).
+              نکته: اگر متنی غیرعددی تایپ شود، Vue به‌صورت خودکار مقدار را به‌عنوان رشته اولیه نگه می‌دارد (Fallback).
             </p>
           </div>
 
@@ -339,7 +339,7 @@ function handleEnterSubmit() {
 
       <template #callout>
         <CalloutBox type="tip" title="چرا ورودی‌های HTML عادی همیشه رشته (string) هستند؟">
-          عنصر <code>&lt;input type='number'&gt;</code> در جاوااسکریپت معمولی همیشه مقدار <code>target.value</code> را به عنوان رشته برمی‌گرداند!
+          عنصر <code>&lt;input type='number'&gt;</code> در جاوااسکریپت معمولی همیشه مقدار <code>target.value</code> را به‌عنوان رشته برمی‌گرداند!
           استفاده از <code>v-model.number</code> این سردرد را حل می‌کند و بلافاصله آن را با <code>parseFloat()</code> به عدد واقعی تبدیل می‌نماید.
         </CalloutBox>
       </template>
