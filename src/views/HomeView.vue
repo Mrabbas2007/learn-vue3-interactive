@@ -1,0 +1,289 @@
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+import { Activity, Check, ArrowLeft, MousePointer2 } from '@lucide/vue'
+import VueParticleOrb from '../components/common/VueParticleOrb.vue'
+
+// «گوی را بچرخانید» بعد از اولین تعامل یا ۸ ثانیه محو می‌شود.
+const showDragHint = ref(true)
+let hintTimer = null
+onMounted(() => {
+  hintTimer = setTimeout(() => (showDragHint.value = false), 8000)
+})
+onUnmounted(() => clearTimeout(hintTimer))
+function onOrbInteract() {
+  showDragHint.value = false
+}
+
+const chapters = [
+  {
+    step: '۱',
+    path: '/basics',
+    title: 'مفاهیم پایه و پیش‌نیازها (Basics)',
+    badge: 'شروع از صفر',
+    color: 'emerald',
+    description:
+      'قلب تپنده Vue چگونه کار می‌کند؟ سیستم واکنش‌پذیری، تفاوت ref و reactive، محاسبه‌شده‌های computed و کارکرد مخفی v-model.',
+    highlights: ['ref vs reactive', 'چرا .value؟', 'computed و حافظه کش', 'v-model زیر کاپوت'],
+  },
+  {
+    step: '۲',
+    path: '/lifecycle',
+    title: 'چرخه‌ی حیات کامپوننت (Lifecycle)',
+    badge: 'تست زنده بصری',
+    color: 'emerald',
+    description:
+      'کامپوننت چگونه متولد می‌شود و از بین می‌رود؟ شبیه‌ساز تصویری هوک‌های onMounted، onUpdated و onUnmounted به همراه حل باگ Memory Leak.',
+    highlights: [
+      'استعاره صحنه تئاتر',
+      'لحظه طلایی onMounted',
+      'حل باگ نشت حافظه',
+      'شبیه‌ساز زنده وقایع',
+    ],
+  },
+  {
+    step: '۳',
+    path: '/directives',
+    title: 'دستورها (Directives)',
+    badge: 'پیشوند v-*',
+    color: 'teal',
+    description:
+      'دستورهای جادویی برای کنترل رندر صفحه: رندر شرطی، حلقه‌ها، اتصال پویا به کلاس‌ها و استایل‌ها، و ساخت دستور سفارشی خودمان.',
+    highlights: [
+      'v-if و v-else',
+      'v-for و ضرورت :key',
+      ':class و :style پویا',
+      'ساخت Custom Directive',
+    ],
+  },
+  {
+    step: '۴',
+    path: '/modifiers',
+    title: 'اصلاح‌کننده‌ها (Modifiers)',
+    badge: 'پسوند با نقطه .',
+    color: 'sky',
+    description:
+      'تغییر رفتار پیش‌فرض رویدادها و ورودی‌ها بدون نیاز به نوشتن دستی stopPropagation، preventDefault یا تبدیل انواع داده.',
+    highlights: ['@click.stop', '@submit.prevent', 'v-model.lazy', 'v-model.number و .trim'],
+  },
+  {
+    step: '۵',
+    path: '/compare',
+    title: 'تفاوت‌ها و مقایسه‌های عمیق',
+    badge: 'تحلیل دقیق DOM',
+    color: 'indigo',
+    description:
+      'مقایسه‌های فنی مهم برای پاسخ به سوالات مصاحبه و بهینه‌سازی پروژه‌ها: چرا .lazy با .stop فرق دارد؟ هزینه v-if در برابر v-show.',
+    highlights: ['.lazy vs .stop', 'v-if vs v-show', 'حفظ وضعیت (State)', 'هزینه رندر DOM'],
+  },
+  {
+    step: '۶',
+    path: '/tokens',
+    title: 'دیزاین توکن‌ها در Tailwind v4',
+    badge: 'معماری مدرن CSS',
+    color: 'purple',
+    description:
+      'آشنایی با سیستم مدرن @theme در Tailwind CSS v4، متغیرهای معنایی، پالت رنگی و استایل‌دهی تمیز بدون فایل کانفیگ قدیمی.',
+    highlights: ['دایرکتیو @theme', 'Semantic Tokens', 'پالت رنگی برند', 'تایپوگرافی فارسی'],
+  },
+]
+</script>
+
+<template>
+  <div class="max-w-6xl mx-auto px-4 py-6 sm:py-10">
+    <!-- ========================================================
+         بخش هیرو حرفه‌ای (Modern Animated Hero Section)
+         ======================================================== -->
+    <section
+      class="relative rounded-3xl bg-gradient-to-b from-white/90 via-emerald-50/20 to-white/60 border border-slate-200/80 shadow-xs p-6 sm:p-10 lg:p-12 mb-16 overflow-hidden"
+    >
+      <!-- پس‌زمینه شبکه‌ای ظریف (Subtle Grid Pattern) -->
+      <div
+        class="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px]"
+      ></div>
+
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <!-- ستون متن‌ها و اکشن‌ها (در RTL سمت راست) -->
+        <div class="lg:col-span-7 text-center lg:text-right space-y-5">
+          <!-- برچسب کوچک بالا -->
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-2xs"
+          >
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>کارگاه عملی و عمیق فرانت‌اند</span>
+            <span class="text-emerald-400">•</span>
+            <span class="font-mono">Tailwind CSS v4</span>
+          </div>
+
+          <!-- عنوان اصلی با جلوگیری از شکست کلمه Vue 3 -->
+          <h1
+            class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.3] sm:leading-[1.25]"
+          >
+            یادگیری پروژه‌محور و مفهومی
+            <br class="hidden sm:inline" />
+            <span
+              class="bg-gradient-to-l from-emerald-600 via-teal-500 to-emerald-600 bg-clip-text text-transparent"
+            >
+              Vue 3 & Composition API
+            </span>
+          </h1>
+
+          <!-- متن معرفی -->
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0">
+            طراحی شده برای یادگیری اصولی و بدون حفظ کردن؛ از درک واکنش‌پذیری و چرخه‌ی حیات تا ساخت
+            دایرکتیوهای سفارشی، همگی همراه با آزمایشگاه‌های تعاملی و کدهای خودتوضیح فارسی.
+          </p>
+
+          <!-- دکمه‌های اکشن -->
+          <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-3">
+            <router-link
+              to="/basics"
+              class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition-all shadow-sm hover:shadow-emerald-500/20 hover:shadow-lg active:scale-98 flex items-center gap-2 cursor-pointer"
+            >
+              <span>شروع یادگیری از گام اول (مفاهیم پایه)</span>
+              <ArrowLeft class="w-4 h-4" />
+            </router-link>
+            <router-link
+              to="/lifecycle"
+              class="px-5 py-3 bg-white hover:bg-slate-50 text-slate-700 font-bold text-sm rounded-xl border border-slate-200 transition-all shadow-2xs hover:border-emerald-300 flex items-center gap-2 cursor-pointer"
+            >
+              <Activity class="w-4 h-4 text-emerald-600" />
+              <span>شبیه‌ساز چرخه حیات</span>
+            </router-link>
+          </div>
+
+          <!-- نشانگرهای سریع (Stats Badges) -->
+          <div
+            class="pt-4 border-t border-slate-100 flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 text-xs text-slate-500 font-medium"
+          >
+            <div class="flex items-center gap-1.5">
+              <Check class="w-4 h-4 text-emerald-600 shrink-0" />
+              <span>۶ سرفصل جامع و کاربردی</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <Check class="w-4 h-4 text-emerald-600 shrink-0" />
+              <span>بیش از ۲۰ آزمایشگاه تست زنده</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <Check class="w-4 h-4 text-emerald-600 shrink-0" />
+              <span>سیستم Design Tokens</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ستون انیمیشن سه بعدی Particle Orb (در RTL سمت چپ) -->
+        <div class="relative lg:col-span-5 flex justify-center items-center">
+          <!-- هاله‌ی نرم پشت گوی برای جدا شدن از پس‌زمینه روشن -->
+          <div
+            class="absolute inset-0 flex items-center justify-center pointer-events-none"
+            aria-hidden="true"
+          >
+            <div
+              class="w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full bg-emerald-400/10 blur-3xl animate-glow"
+            ></div>
+          </div>
+          <VueParticleOrb @interact="onOrbInteract" />
+          <!-- راهنمای تعامل -->
+          <Transition name="fade">
+            <div
+              v-if="showDragHint"
+              class="absolute inset-x-0 bottom-1 flex justify-center pointer-events-none"
+            >
+              <div
+                class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold text-slate-500 bg-white/80 backdrop-blur-sm border border-slate-200/80 shadow-2xs"
+              >
+                <MousePointer2 class="w-3 h-3 text-emerald-600" />
+                <span>گوی را بچرخانید</span>
+              </div>
+            </div>
+          </Transition>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         نقشه راه یادگیری (Roadmap Grid)
+         ======================================================== -->
+    <div class="mb-8">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+            نقشه راه یادگیری سرفصل‌ها
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+            پیشنهاد می‌شود سرفصل‌ها را به ترتیب از گام ۱ تا ۶ دنبال کنید.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <router-link
+          v-for="ch in chapters"
+          :key="ch.path"
+          :to="ch.path"
+          class="group relative bg-white border border-slate-200/90 rounded-2xl p-6 transition-all duration-200 hover:shadow-lg hover:border-emerald-300 hover:-translate-y-0.5 flex flex-col justify-between"
+        >
+          <div>
+            <!-- هدر کارت فصل -->
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-2.5">
+                <span
+                  class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 font-bold text-xs flex items-center justify-center font-mono"
+                >
+                  {{ ch.step }}
+                </span>
+                <span
+                  class="text-xs font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600"
+                >
+                  {{ ch.badge }}
+                </span>
+              </div>
+              <ArrowLeft
+                class="w-4 h-4 text-emerald-600 group-hover:translate-x-[-4px] transition-transform shrink-0"
+              />
+            </div>
+
+            <!-- عنوان و متن -->
+            <h3
+              class="text-base font-bold text-slate-800 group-hover:text-emerald-700 transition-colors mb-2"
+            >
+              {{ ch.title }}
+            </h3>
+            <p class="text-xs text-slate-500 leading-relaxed mb-4">
+              {{ ch.description }}
+            </p>
+          </div>
+
+          <!-- تگ‌های نکات آموزشی -->
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+            <span
+              v-for="h in ch.highlights"
+              :key="h"
+              class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-50 text-slate-600 border border-slate-100"
+            >
+              {{ h }}
+            </span>
+          </div>
+        </router-link>
+      </div>
+    </div>
+
+    <!-- فوتر آموزشی کوچک -->
+    <div class="mt-12 text-center text-xs text-slate-400">
+      طراحی شده برای یادگیری شفاف • توسعه یافته با Vue 3 + Tailwind CSS v4 + Vite
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(4px);
+}
+</style>
