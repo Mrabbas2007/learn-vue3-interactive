@@ -10,7 +10,7 @@
 [![Vue 3](https://img.shields.io/badge/Vue-3.5+-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)](https://vuejs.org/)
 [![Vite](https://img.shields.io/badge/Vite-8.x-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vite.dev/)
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS_v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![Vitest](https://img.shields.io/badge/Vitest-Passed_14/14-729B1B?style=for-the-badge&logo=vitest&logoColor=white)](https://vitest.dev/)
+[![Vitest](https://img.shields.io/badge/Vitest-Passed_36/36-729B1B?style=for-the-badge&logo=vitest&logoColor=white)](https://vitest.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](http://makeapullrequest.com)
 
@@ -88,6 +88,11 @@
 - رنگ‌های معنایی (Semantic Tokens) برای سهولت سفارشی‌سازی تم و دارک‌مود.
 - عدم نیاز به فایل‌های حجیم و سنگین `tailwind.config.js`.
 
+### ۷. دارک‌مود واقعی بر پایهٔ توکن‌ها (Themeable By Design)
+- کلید تغییر تم در هدر: تم انتخابی در `localStorage` ذخیره و در اولین بار از تنظیم سیستم (`prefers-color-scheme`) خوانده می‌شود.
+- تعریف دوبارهٔ توکن‌های معنایی در کلاس `.dark`؛ هیچ کامپوننتی کلاس رنگ سخت‌کدشده ندارد، پس تغییر تم بدون دست‌زدن به مارک‌آپ انجام می‌شود.
+- پیاده‌سازی با `@custom-variant dark` در Tailwind v4 (استراتژی کلاس به‌جای مدیا کوئری).
+
 ---
 
 ## 🗺️ نقشه راه یادگیری
@@ -120,6 +125,7 @@ flowchart TD
 | **Lucide Vue** | `v1.x` | مجموعه آیکون‌های برداری مدرن و یکدست |
 | **Vitest** | `v4.x` | ابزار اجرای تست‌های واحد کامپوننت‌ها و دموها |
 | **Oxlint & ESLint** | `v1.x` | اعتبارسنجی سرعت‌بالای کیفیت کد و قوانین Vue |
+| **Fontsource** | `v5.x` | میزبانی محلی فونت‌های وزیرمتن و JetBrains Mono (بدون وابستگی به Google Fonts) |
 
 ---
 
@@ -145,6 +151,8 @@ flowchart TD
 │   │       ├── MemoryLeakDemo.vue
 │   │       ├── ReactivityComparisonDemo.vue
 │   │       └── VIfVsVShowChild.vue
+│   ├── composables/
+│   │   └── useTheme.js         # مدیریت تم روشن/تاریک + ذخیره در localStorage
 │   ├── directives/
 │   │   └── highlight.js        # دایرکتیو سفارشی نمونه با چرخه‌ی حیات
 │   ├── router/
@@ -156,10 +164,18 @@ flowchart TD
 │   │   ├── HomeView.vue
 │   │   ├── LifecycleView.vue
 │   │   ├── ModifiersView.vue
+│   │   ├── NotFoundView.vue    # صفحه‌ی 404 برای آدرس‌های نامعتبر
 │   │   └── TokensView.vue
+│   ├── __tests__/              # تست‌های واحد (کامپوننت، روتر و تم)
 │   ├── App.vue
 │   └── main.js
-├── index.html                  # تگ‌های کامل سئو، OpenGraph و فونت وزیرمتن
+├── public/
+│   ├── favicon.ico
+│   ├── og-image.png            # تصویر ۱۲۰۰x۶۳۰ برای کارت شبکه‌های اجتماعی
+│   ├── robots.txt
+│   └── sitemap.xml
+├── index.html                  # سئو، OpenGraph، داده ساختاریافته و اسکریپت اولیه‌ی تم
+├── LICENSE                     # مجوز MIT
 ├── package.json
 └── vite.config.js              # پیکربندی پایه و مسیردهی برای GitHub Pages
 ```

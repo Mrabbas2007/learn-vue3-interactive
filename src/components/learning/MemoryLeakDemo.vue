@@ -55,13 +55,13 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="p-4 bg-amber-50 border border-amber-200 rounded-xl my-2">
+  <div class="p-4 bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/30 rounded-xl my-2">
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-2">
         <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-ping"></span>
-        <span class="text-xs font-bold text-amber-900">تایمر زنده فعال است:</span>
+        <span class="text-xs font-bold text-amber-900 dark:text-amber-300">تایمر زنده فعال است:</span>
       </div>
-      <span class="text-xs font-mono font-bold bg-amber-100 text-amber-900 px-2.5 py-1 rounded-md border border-amber-300">
+      <span class="text-xs font-mono font-bold bg-amber-100 dark:bg-amber-500/20 text-amber-900 dark:text-amber-300 px-2.5 py-1 rounded-md border border-amber-300 dark:border-amber-500/30">
         {{ seconds }} ثانیه سپری شد
       </span>
     </div>

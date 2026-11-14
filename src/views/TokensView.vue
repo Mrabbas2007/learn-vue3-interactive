@@ -21,11 +21,11 @@ const tokensCssCode = `@import "tailwindcss";
 }`
 
 const brandTokens = [
-  { name: '--color-brand-50', hex: '#ecfdf5', class: 'bg-brand-50 text-slate-800' },
-  { name: '--color-brand-100', hex: '#d1fae5', class: 'bg-brand-100 text-slate-800' },
-  { name: '--color-brand-200', hex: '#a7f3d0', class: 'bg-brand-200 text-slate-800' },
-  { name: '--color-brand-300', hex: '#6ee7b7', class: 'bg-brand-300 text-slate-900' },
-  { name: '--color-brand-400', hex: '#34d399', class: 'bg-brand-400 text-slate-900' },
+  { name: '--color-brand-50', hex: '#ecfdf5', class: 'bg-brand-50 text-emerald-950' },
+  { name: '--color-brand-100', hex: '#d1fae5', class: 'bg-brand-100 text-emerald-950' },
+  { name: '--color-brand-200', hex: '#a7f3d0', class: 'bg-brand-200 text-emerald-950' },
+  { name: '--color-brand-300', hex: '#6ee7b7', class: 'bg-brand-300 text-emerald-950' },
+  { name: '--color-brand-400', hex: '#34d399', class: 'bg-brand-400 text-emerald-950' },
   { name: '--color-brand-500', hex: '#10b981', class: 'bg-brand-500 text-white' },
   { name: '--color-brand-600', hex: '#059669', class: 'bg-brand-600 text-white' },
   { name: '--color-brand-700', hex: '#047857', class: 'bg-brand-700 text-white' },
@@ -59,17 +59,17 @@ async function copyText(text) {
   <div class="max-w-4xl mx-auto px-4 py-8">
     <!-- هدر صفحه -->
     <div class="mb-8">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 mb-3">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary-text border border-emerald-200 dark:border-emerald-500/30 mb-3">
         <span>سیستم طراحی</span>
         <span>•</span>
         <span>معماری Tailwind CSS v4</span>
       </div>
-      <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-text-main tracking-tight">
         دیزاین توکن‌ها (Design Tokens) در Tailwind v4
       </h1>
-      <p class="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
+      <p class="text-text-body mt-2 text-sm sm:text-base leading-relaxed">
         دیزاین توکن‌ها، کوچک‌ترین متغیرهای بنیادین یک دیزاین سیستم هستند (رنگ‌ها، فاصله‌ها، گوشه‌ها، فونت‌ها).
-        در Tailwind v4 این توکن‌ها بدون نیاز به فایل جاوااسکریپت، مستقیماً درون بلوک <code class="font-mono text-emerald-700 bg-emerald-50 px-1 py-0.5 rounded font-bold">@theme</code> تعریف می‌شوند.
+        در Tailwind v4 این توکن‌ها بدون نیاز به فایل جاوااسکریپت، مستقیماً درون بلوک <code class="font-mono text-primary-text bg-primary-light px-1 py-0.5 rounded font-bold">@theme</code> تعریف می‌شوند.
       </p>
     </div>
 
@@ -86,7 +86,7 @@ async function copyText(text) {
             :key="token.name"
             @click="copyText(token.name)"
             :class="[
-              'p-3 rounded-xl border border-slate-200 cursor-pointer transition-transform hover:scale-102 flex flex-col justify-between h-20 shadow-2xs',
+              'p-3 rounded-xl border border-border-subtle cursor-pointer transition-transform hover:scale-102 flex flex-col justify-between h-20 shadow-2xs',
               token.class,
             ]"
           >
@@ -94,7 +94,7 @@ async function copyText(text) {
             <span class="text-[10px] font-mono opacity-85 truncate">{{ token.name.replace('--color-', '') }}</span>
           </div>
         </div>
-        <p v-if="copiedToken" class="mt-3 text-xs text-emerald-700 font-bold text-center flex items-center justify-center gap-1.5">
+        <p v-if="copiedToken" class="mt-3 text-xs text-primary-text font-bold text-center flex items-center justify-center gap-1.5">
           <Check class="w-4 h-4" />
           <span>توکن "{{ copiedToken }}" کپی شد!</span>
         </p>
@@ -113,20 +113,20 @@ async function copyText(text) {
     <ConceptCard
       title="۲. توکن‌های معنایی (Semantic Tokens)"
       badge="معنا محوری"
-      description="به جای اینکه مستقیماً بنویسیم bg-emerald-500، از نام‌های معنایی مانند bg-primary یا text-text-main استفاده می‌کنیم تا در آینده تغییر تم با یک خط کد ممکن باشد."
+      description="به جای اینکه مستقیماً بنویسیم bg-brand-500، از نام‌های معنایی مانند bg-primary یا text-text-main استفاده می‌کنیم تا در آینده تغییر تم با یک خط کد ممکن باشد."
     >
       <template #demo>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div
             v-for="item in semanticTokens"
             :key="item.token"
-            class="p-3.5 bg-white border border-slate-200 rounded-xl flex items-center justify-between"
+            class="p-3.5 bg-surface-card border border-border-subtle rounded-xl flex items-center justify-between"
           >
             <div>
-              <h5 class="text-xs font-bold text-slate-800">{{ item.label }}</h5>
-              <code class="text-[11px] text-slate-500 font-mono">{{ item.token }}</code>
+              <h3 class="text-xs font-bold text-text-main">{{ item.label }}</h3>
+              <code class="text-[11px] text-text-muted font-mono">{{ item.token }}</code>
             </div>
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-700 border">
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface-subtle text-text-body border">
               {{ item.usage }}
             </span>
           </div>
@@ -150,28 +150,28 @@ async function copyText(text) {
     >
       <template #demo>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <div class="p-4 bg-white border border-slate-200 rounded-2xl flex flex-col items-center justify-center text-center">
-            <div class="w-12 h-12 bg-emerald-100 border border-emerald-300 rounded-card mb-2 flex items-center justify-center text-xs font-bold text-emerald-800">
+          <div class="p-4 bg-surface-card border border-border-subtle rounded-2xl flex flex-col items-center justify-center text-center">
+            <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-500/20 border border-emerald-300 dark:border-emerald-500/30 rounded-card mb-2 flex items-center justify-center text-xs font-bold text-emerald-800 dark:text-emerald-300">
               Card
             </div>
-            <span class="text-xs font-bold text-slate-700">--radius-card</span>
-            <span class="text-[10px] text-slate-400 font-mono">1rem (16px)</span>
+            <span class="text-xs font-bold text-text-body">--radius-card</span>
+            <span class="text-[10px] text-text-subtle font-mono">1rem (16px)</span>
           </div>
 
-          <div class="p-4 bg-white border border-slate-200 rounded-2xl flex flex-col items-center justify-center text-center">
-            <div class="w-12 h-12 bg-emerald-100 border border-emerald-300 rounded-button mb-2 flex items-center justify-center text-xs font-bold text-emerald-800">
+          <div class="p-4 bg-surface-card border border-border-subtle rounded-2xl flex flex-col items-center justify-center text-center">
+            <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-500/20 border border-emerald-300 dark:border-emerald-500/30 rounded-button mb-2 flex items-center justify-center text-xs font-bold text-emerald-800 dark:text-emerald-300">
               Btn
             </div>
-            <span class="text-xs font-bold text-slate-700">--radius-button</span>
-            <span class="text-[10px] text-slate-400 font-mono">0.625rem (10px)</span>
+            <span class="text-xs font-bold text-text-body">--radius-button</span>
+            <span class="text-[10px] text-text-subtle font-mono">0.625rem (10px)</span>
           </div>
 
-          <div class="p-4 bg-white border border-slate-200 rounded-2xl flex flex-col items-center justify-center text-center">
-            <div class="w-12 h-12 bg-emerald-100 border border-emerald-300 rounded-badge mb-2 flex items-center justify-center text-xs font-bold text-emerald-800">
+          <div class="p-4 bg-surface-card border border-border-subtle rounded-2xl flex flex-col items-center justify-center text-center">
+            <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-500/20 border border-emerald-300 dark:border-emerald-500/30 rounded-badge mb-2 flex items-center justify-center text-xs font-bold text-emerald-800 dark:text-emerald-300">
               Pill
             </div>
-            <span class="text-xs font-bold text-slate-700">--radius-badge</span>
-            <span class="text-[10px] text-slate-400 font-mono">9999px (کامل گرد)</span>
+            <span class="text-xs font-bold text-text-body">--radius-badge</span>
+            <span class="text-[10px] text-text-subtle font-mono">9999px (کامل گرد)</span>
           </div>
         </div>
       </template>

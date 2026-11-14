@@ -47,7 +47,7 @@ onUnmounted(() => {
         v-model="message"
         placeholder="مثلاً: اطلاعات مهم کاربر..."
         :class="[
-          'w-full px-2.5 py-1.5 border rounded-lg bg-white text-xs focus:outline-none',
+          'w-full px-2.5 py-1.5 border rounded-lg bg-surface-card text-xs focus:outline-none',
           type === 'if'
             ? 'border-rose-300 focus:ring-1 focus:ring-rose-400'
             : 'border-emerald-300 focus:ring-1 focus:ring-emerald-400',
@@ -68,7 +68,7 @@ onUnmounted(() => {
         <span>افزایش شمارنده داخلی</span>
       </button>
 
-      <span class="font-mono font-bold bg-white px-2.5 py-1 rounded-md border text-xs">
+      <span class="font-mono font-bold bg-surface-card px-2.5 py-1 rounded-md border text-xs">
         شمارنده محلی: {{ counter }}
       </span>
     </div>

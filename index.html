@@ -2,9 +2,24 @@
 <html lang="fa" dir="rtl">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- اعمال تم پیش از رندر (جلوگیری از پرش رنگ در اولین بارگذاری) -->
+    <script>
+      ;(function () {
+        try {
+          var stored = localStorage.getItem('vue3-workshop-theme')
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+          var isDark = stored === 'dark' || (stored !== 'light' && prefersDark)
+          if (isDark) document.documentElement.classList.add('dark')
+        } catch (error) {
+          /* در محیط‌های محدود (مثلاً حالت private) به تم روشن برمی‌گردیم */
+        }
+      })()
+    </script>
+
     <!-- سئو و توضیحات پایه (SEO & Primary Meta Tags) -->
     <title>کارگاه تعاملی یادگیری Vue 3 و Tailwind CSS v4</title>
     <meta name="title" content="کارگاه تعاملی یادگیری Vue 3 و Tailwind CSS v4" />
@@ -16,17 +31,31 @@
       name="keywords"
       content="Vue 3, Composition API, Tailwind CSS v4, Vue.js Tutorial, آموزش ویو ۳, چرخه‌ی حیات Vue, Reactivity, دایرکتیوهای ویو, فرانت‌اند, جاوااسکریپت فارسی"
     />
-    <meta name="author" content="Vue 3 Interactive Workshop" />
+    <meta name="author" content="Amir Abbas (Mrabbas2007)" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#10b981" />
+    <link rel="canonical" href="https://mrabbas2007.github.io/learn-vue3-interactive/" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a101c" media="(prefers-color-scheme: dark)" />
 
     <!-- تگ‌های شبکه‌های اجتماعی Open Graph / Facebook / Telegram -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fa_IR" />
+    <meta property="og:site_name" content="کارگاه تعاملی Vue 3" />
+    <meta property="og:url" content="https://mrabbas2007.github.io/learn-vue3-interactive/" />
     <meta property="og:title" content="کارگاه تعاملی یادگیری Vue 3 و Tailwind CSS v4" />
     <meta
       property="og:description"
       content="یادگیری عمیق و مفهومی Vue 3 همراه با آزمایشگاه‌های زنده، شبیه‌ساز چرخه حیات، حل باگ نشت حافظه و دیزاین سیستم Tailwind v4."
+    />
+    <meta
+      property="og:image"
+      content="https://mrabbas2007.github.io/learn-vue3-interactive/og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="کارگاه تعاملی یادگیری Vue 3 و Tailwind CSS v4 — آزمایشگاه زنده و شبیه‌ساز چرخه حیات"
     />
 
     <!-- تگ‌های توییتر / X (Twitter Cards) -->
@@ -36,16 +65,30 @@
       name="twitter:description"
       content="یادگیری عمیق و مفهومی Vue 3 با آزمایشگاه‌های تعاملی و Tailwind CSS v4."
     />
-
-    <!-- اتصال به فونت وزیرمتن و فونت کدهای JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
+    <meta
+      name="twitter:image"
+      content="https://mrabbas2007.github.io/learn-vue3-interactive/og-image.png"
     />
+
+    <!-- داده‌ی ساختاریافته برای موتورهای جست‌وجو -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "name": "کارگاه تعاملی یادگیری Vue 3 و Tailwind CSS v4",
+        "description": "کارگاه تعاملی و آزمایشگاه زنده برای یادگیری Vue 3، Composition API، واکنش‌پذیری، چرخه حیات و Tailwind CSS v4.",
+        "inLanguage": "fa-IR",
+        "learningResourceType": "Workshop",
+        "educationalLevel": "Beginner to Intermediate",
+        "isAccessibleForFree": true,
+        "url": "https://mrabbas2007.github.io/learn-vue3-interactive/",
+        "keywords": "Vue 3, Composition API, Reactivity, Lifecycle Hooks, Tailwind CSS v4"
+      }
+    </script>
   </head>
-  <body class="bg-surface-bg text-text-main antialiased selection:bg-brand-100 selection:text-brand-800">
+  <body
+    class="bg-surface-bg text-text-main antialiased selection:bg-brand-500/30 selection:text-text-main"
+  >
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
   </body>

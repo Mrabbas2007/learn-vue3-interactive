@@ -15,7 +15,7 @@ const stages = [
     hooks: ['setup() / <script setup>'],
     desc: 'تعریف متغیرها و توابع. هنوز هیچ المان HTML در صفحه وجود ندارد!',
     icon: Sprout,
-    iconColor: 'text-emerald-500',
+    iconColor: 'text-brand-500',
   },
   {
     id: 'mount',
@@ -53,14 +53,14 @@ const stages = [
         :class="[
           'relative p-4 rounded-2xl border transition-all duration-300 flex flex-col justify-between',
           activeStage === st.id
-            ? 'bg-white border-emerald-500 shadow-md ring-2 ring-emerald-400/30 -translate-y-1'
-            : 'bg-slate-50/70 border-slate-200/80 opacity-75 hover:opacity-100',
+            ? 'bg-surface-card border-emerald-500 shadow-md ring-2 ring-emerald-400/30 -translate-y-1'
+            : 'bg-slate-50/70 border-border-subtle opacity-75 hover:opacity-100',
         ]"
       >
         <!-- نشانگر اجرای زنده -->
         <div v-if="activeStage === st.id" class="absolute -top-2.5 right-4">
           <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-600 text-white shadow-2xs animate-pulse">
-            <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-surface-card"></span>
             <span>در حال اجرا</span>
           </span>
         </div>
@@ -69,9 +69,9 @@ const stages = [
           <!-- آیکون و عنوان مرحله -->
           <div class="flex items-center gap-2 mb-2">
             <component :is="st.icon" :class="['w-5 h-5 shrink-0', st.iconColor]" />
-            <h4 class="text-xs sm:text-sm font-bold text-slate-800">
+            <h3 class="text-xs sm:text-sm font-bold text-text-main">
               {{ st.title }}
-            </h4>
+            </h3>
           </div>
 
           <!-- هوک‌های مربوطه -->
@@ -79,14 +79,14 @@ const stages = [
             <span
               v-for="h in st.hooks"
               :key="h"
-              class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white text-slate-700 border border-slate-200"
+              class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-surface-card text-text-body border border-border-subtle"
             >
               {{ h }}
             </span>
           </div>
 
           <!-- توضیحات کوتاه -->
-          <p class="text-[11px] text-slate-500 leading-relaxed">
+          <p class="text-[11px] text-text-muted leading-relaxed">
             {{ st.desc }}
           </p>
         </div>

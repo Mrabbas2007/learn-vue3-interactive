@@ -118,14 +118,14 @@ const chapters = [
         <!-- ستون متن (در RTL سمت راست) -->
         <div class="lg:col-span-7 text-center lg:text-right">
           <!-- kicker خطی، بدون کپسول -->
-          <div class="inline-flex items-center gap-3 text-sm font-bold text-emerald-600">
+          <div class="inline-flex items-center gap-3 text-sm font-bold text-primary-text">
             <span class="h-px w-8 bg-emerald-500/70" aria-hidden="true"></span>
             <span>کارگاه تعاملی Vue 3</span>
           </div>
 
           <!-- تیتر ضربه‌ای -->
           <h1
-            class="mt-5 text-4xl sm:text-5xl lg:text-[3.4rem] font-black text-slate-900 tracking-tight leading-[1.3] sm:leading-[1.25]"
+            class="mt-5 text-4xl sm:text-5xl lg:text-[3.4rem] font-black text-text-main tracking-tight leading-[1.3] sm:leading-[1.25]"
           >
             Vue 3 را عمیق بفهم،
             <br />
@@ -138,7 +138,7 @@ const chapters = [
 
           <!-- معرفی -->
           <p
-            class="mt-5 text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0"
+            class="mt-5 text-text-body text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0"
           >
             از سیستم واکنش‌پذیری تا چرخه‌ی حیات و دستورهای سفارشی — همه‌چیز با آزمایشگاه‌های تعاملی،
             شبیه‌سازهای زنده و کدهای خودتوضیح فارسی. برای کسی که می‌خواهد «چرا» را بفهمد، نه فقط
@@ -156,9 +156,9 @@ const chapters = [
             </router-link>
             <router-link
               to="/lifecycle"
-              class="px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-700 font-bold text-sm rounded-xl border border-slate-200 transition-all shadow-2xs hover:border-emerald-300 flex items-center gap-2 cursor-pointer"
+              class="px-6 py-3.5 bg-surface-card hover:bg-slate-50 text-text-body font-bold text-sm rounded-xl border border-border-subtle transition-all shadow-2xs hover:border-emerald-300 flex items-center gap-2 cursor-pointer"
             >
-              <Activity class="w-4 h-4 text-emerald-600" />
+              <Activity class="w-4 h-4 text-primary-text" />
               <span>شبیه‌ساز چرخه حیات</span>
             </router-link>
           </div>
@@ -183,9 +183,9 @@ const chapters = [
               class="absolute inset-x-0 -bottom-2 flex justify-center pointer-events-none"
             >
               <div
-                class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold text-slate-500 bg-white/80 backdrop-blur-sm border border-slate-200/80 shadow-2xs"
+                class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold text-text-muted bg-white/80 backdrop-blur-sm border border-border-subtle shadow-2xs"
               >
-                <MousePointer2 class="w-3 h-3 text-emerald-600" />
+                <MousePointer2 class="w-3 h-3 text-primary-text" />
                 <span>گوی را با ماوس بچرخانید</span>
               </div>
             </div>
@@ -200,10 +200,10 @@ const chapters = [
     <div class="mb-8">
       <div class="flex items-center justify-between mb-6">
         <div>
-          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+          <h2 class="text-xl sm:text-2xl font-extrabold text-text-main tracking-tight">
             نقشه راه یادگیری سرفصل‌ها
           </h2>
-          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+          <p class="text-xs sm:text-sm text-text-muted mt-1">
             پیشنهاد می‌شود سرفصل‌ها را به ترتیب از گام ۱ تا ۶ دنبال کنید.
           </p>
         </div>
@@ -214,45 +214,45 @@ const chapters = [
           v-for="ch in chapters"
           :key="ch.path"
           :to="ch.path"
-          class="group relative bg-white border border-slate-200/90 rounded-2xl p-6 transition-all duration-200 hover:shadow-lg hover:border-emerald-300 hover:-translate-y-0.5 flex flex-col justify-between"
+          class="group relative bg-surface-card border border-slate-200/90 rounded-2xl p-6 transition-all duration-200 hover:shadow-lg hover:border-emerald-300 hover:-translate-y-0.5 flex flex-col justify-between"
         >
           <div>
             <!-- هدر کارت فصل -->
             <div class="flex items-center justify-between mb-3">
               <div class="flex items-center gap-2.5">
                 <span
-                  class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 font-bold text-xs flex items-center justify-center font-mono"
+                  class="w-7 h-7 rounded-lg bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 font-bold text-xs flex items-center justify-center font-mono"
                 >
                   {{ ch.step }}
                 </span>
                 <span
-                  class="text-xs font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600"
+                  class="text-xs font-semibold px-2 py-0.5 rounded-full bg-surface-subtle text-text-body"
                 >
                   {{ ch.badge }}
                 </span>
               </div>
               <ArrowLeft
-                class="w-4 h-4 text-emerald-600 group-hover:translate-x-[-4px] transition-transform shrink-0"
+                class="w-4 h-4 text-primary-text group-hover:translate-x-[-4px] transition-transform shrink-0"
               />
             </div>
 
             <!-- عنوان و متن -->
             <h3
-              class="text-base font-bold text-slate-800 group-hover:text-emerald-700 transition-colors mb-2"
+              class="text-base font-bold text-text-main group-hover:text-emerald-700 transition-colors mb-2"
             >
               {{ ch.title }}
             </h3>
-            <p class="text-xs text-slate-500 leading-relaxed mb-4">
+            <p class="text-xs text-text-muted leading-relaxed mb-4">
               {{ ch.description }}
             </p>
           </div>
 
           <!-- تگ‌های نکات آموزشی -->
-          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-border-subtle">
             <span
               v-for="h in ch.highlights"
               :key="h"
-              class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-50 text-slate-600 border border-slate-100"
+              class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-surface-subtle text-text-body border border-border-subtle"
             >
               {{ h }}
             </span>
@@ -262,7 +262,7 @@ const chapters = [
     </div>
 
     <!-- فوتر آموزشی کوچک -->
-    <div class="mt-12 text-center text-xs text-slate-400">
+    <div class="mt-12 text-center text-xs text-text-subtle">
       طراحی شده برای یادگیری شفاف • توسعه یافته با Vue 3 + Tailwind CSS v4 + Vite
     </div>
   </div>

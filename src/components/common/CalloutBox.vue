@@ -18,38 +18,38 @@ const styles = computed(() => {
   switch (props.type) {
     case 'tip':
       return {
-        wrapper: 'bg-emerald-50/80 border-emerald-200 text-emerald-950',
-        badge: 'bg-emerald-100 text-emerald-800 border-emerald-300',
-        title: 'text-emerald-900',
+        wrapper: 'bg-emerald-50/80 dark:bg-emerald-500/10 border-emerald-200 dark:border-emerald-500/30 text-emerald-950 dark:text-emerald-200',
+        badge: 'bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-200 border-emerald-300 dark:border-emerald-500/40',
+        title: 'text-emerald-900 dark:text-emerald-200',
         icon: Lightbulb,
-        iconColor: 'text-emerald-600',
+        iconColor: 'text-primary-text',
         label: 'نکته کاربردی',
       }
     case 'warning':
       return {
-        wrapper: 'bg-amber-50/80 border-amber-200 text-amber-950',
-        badge: 'bg-amber-100 text-amber-800 border-amber-300',
-        title: 'text-amber-900',
+        wrapper: 'bg-amber-50/80 dark:bg-amber-500/10 border-amber-200 dark:border-amber-500/30 text-amber-950 dark:text-amber-200',
+        badge: 'bg-amber-100 dark:bg-amber-500/20 text-amber-800 dark:text-amber-200 border-amber-300 dark:border-amber-500/40',
+        title: 'text-amber-900 dark:text-amber-200',
         icon: AlertTriangle,
-        iconColor: 'text-amber-600',
+        iconColor: 'text-amber-600 dark:text-amber-400',
         label: 'دام رایج (مراقب باشید)',
       }
     case 'under-the-hood':
       return {
-        wrapper: 'bg-indigo-50/80 border-indigo-200 text-indigo-950',
-        badge: 'bg-indigo-100 text-indigo-800 border-indigo-300',
-        title: 'text-indigo-900',
+        wrapper: 'bg-indigo-50/80 dark:bg-indigo-500/10 border-indigo-200 dark:border-indigo-500/30 text-indigo-950 dark:text-indigo-200',
+        badge: 'bg-indigo-100 dark:bg-indigo-500/20 text-indigo-800 dark:text-indigo-200 border-indigo-300 dark:border-indigo-500/40',
+        title: 'text-indigo-900 dark:text-indigo-200',
         icon: Settings,
-        iconColor: 'text-indigo-600',
+        iconColor: 'text-indigo-600 dark:text-indigo-400',
         label: 'زیر کاپوت چطور کار می‌کند؟',
       }
     default:
       return {
-        wrapper: 'bg-sky-50/80 border-sky-200 text-sky-950',
-        badge: 'bg-sky-100 text-sky-800 border-sky-300',
-        title: 'text-sky-900',
+        wrapper: 'bg-sky-50/80 dark:bg-sky-500/10 border-sky-200 dark:border-sky-500/30 text-sky-950 dark:text-sky-200',
+        badge: 'bg-sky-100 dark:bg-sky-500/20 text-sky-800 dark:text-sky-200 border-sky-300 dark:border-sky-500/40',
+        title: 'text-sky-900 dark:text-sky-200',
         icon: Info,
-        iconColor: 'text-sky-600',
+        iconColor: 'text-sky-600 dark:text-sky-400',
         label: 'توضیح مفهومی',
       }
   }
