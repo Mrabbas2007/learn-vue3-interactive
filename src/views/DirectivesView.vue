@@ -1,13 +1,14 @@
 <script setup>
-import { ref } from 'vue'
-import { CheckCircle2, AlertTriangle, XCircle, Trash2, ArrowLeft } from '@lucide/vue'
+import PageHeader from '../components/layout/PageHeader.vue'
+import NextStepBanner from '../components/layout/NextStepBanner.vue'
 import ConceptCard from '../components/common/ConceptCard.vue'
 import CodeSnippet from '../components/common/CodeSnippet.vue'
 import CalloutBox from '../components/common/CalloutBox.vue'
+import ConditionalRenderDemo from '../components/learning/directives/ConditionalRenderDemo.vue'
+import ListKeyDemo from '../components/learning/directives/ListKeyDemo.vue'
+import DynamicBindingDemo from '../components/learning/directives/DynamicBindingDemo.vue'
+import CustomHighlightDemo from '../components/learning/directives/CustomHighlightDemo.vue'
 
-// -------------------------------------------------------------
-// نمونه کدهای آموزشی
-// -------------------------------------------------------------
 const vIfCode = `<p v-if="status === 'success'">موفقیت‌آمیز</p>
 <p v-else-if="status === 'warning'">هشدار</p>
 <p v-else>خطا</p>`
@@ -39,115 +40,26 @@ const vHighlight = {
     // پاک‌سازی رویدادها برای جلوگیری از Memory Leak
   }
 }`
-
-// -------------------------------------------------------------
-// دایرکتیوهای سفارشی محلی
-// -------------------------------------------------------------
-const vFocus = {
-  mounted(el) {
-    el.focus()
-  },
-}
-
-const vRedBold = {
-  mounted(el) {
-    el.style.color = '#ef4444'
-    el.style.fontWeight = 'bold'
-  },
-}
-
-// -------------------------------------------------------------
-// متغیرهای وضعیت
-// -------------------------------------------------------------
-const statusType = ref('success')
-let nextFruitId = 5
-const fruits = ref([
-  { id: 1, name: 'سیب' },
-  { id: 2, name: 'پرتقال' },
-  { id: 3, name: 'موز' },
-  { id: 4, name: 'انگور' },
-])
-const newFruit = ref('')
-const isButtonActive = ref(false)
-const selectedColor = ref('#fef08a')
-
-function addFruit() {
-  if (newFruit.value.trim()) {
-    fruits.value.push({
-      id: nextFruitId++,
-      name: newFruit.value.trim(),
-    })
-    newFruit.value = ''
-  }
-}
-
-function removeFruit(id) {
-  fruits.value = fruits.value.filter((fruit) => fruit.id !== id)
-}
 </script>
 
 <template>
   <div class="max-w-4xl mx-auto px-4 py-8">
     <!-- هدر صفحه -->
-    <div class="mb-8">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary-text border border-emerald-200 dark:border-emerald-500/30 mb-3">
-        <span>گام ۳ از نقشه راه</span>
-        <span>•</span>
-        <span>دستورهای ویژه HTML</span>
-      </div>
-      <h1 class="text-2xl sm:text-3xl font-extrabold text-text-main tracking-tight">
-        دستورها (Directives) در Vue 3
-      </h1>
-      <p class="text-text-body mt-2 text-sm sm:text-base leading-relaxed">
-        دستور (Directive) ویژگی خاصی در قالب HTML است که با پیشوند <code class="text-primary-text bg-primary-light px-1 py-0.5 rounded font-mono font-bold">v-</code> آغاز می‌شود
-        و به عنصر DOM قابلیت‌های پویا مثل شرط، حلقه، یا اتصال مقادیر اضافه می‌کند.
-      </p>
-    </div>
+    <PageHeader
+      step="گام ۳ از نقشه راه"
+      topic="دستورهای ویژه HTML"
+      title="دستورها (Directives) در Vue 3"
+      description="دستور (Directive) ویژگی خاصی در قالب HTML است که با پیشوند v- آغاز می‌شود و به عنصر DOM قابلیت‌های پویا مثل شرط، حلقه، یا اتصال مقادیر اضافه می‌کند."
+    />
 
-    <!-- ========================================================= -->
-    <!-- درس ۱: دستورهای شرطی (v-if, v-else-if, v-else) -->
-    <!-- ========================================================= -->
+    <!-- درس ۱: دستورهای شرطی -->
     <ConceptCard
       title="۱. رندر شرطی: v-if و v-else-if و v-else"
       badge="v-if"
       description="این دستورات عناصری از صفحه را بر اساس شرط‌های جاوااسکریپتی به‌طور کامل در درخت DOM حذف یا اضافه می‌کنند."
     >
       <template #demo>
-        <div class="space-y-4">
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="text-xs font-bold text-text-body">انتخاب وضعیت:</span>
-            <button
-              v-for="type in ['success', 'warning', 'error']"
-              :key="type"
-              @click="statusType = type"
-              type="button"
-              :class="[
-                'px-3 py-1 text-xs font-bold rounded-lg transition-colors cursor-pointer border',
-                statusType === type
-                  ? 'bg-slate-900 text-white border-slate-900 dark:bg-emerald-600 dark:border-emerald-500'
-                  : 'bg-surface-card text-text-body border-border-medium hover:bg-surface-hover',
-              ]"
-            >
-              {{ type }}
-            </button>
-          </div>
-
-          <!-- شرط‌های رندر -->
-          <div class="p-4 rounded-xl border transition-all text-sm">
-            <div v-if="statusType === 'success'" class="text-primary-text font-semibold flex items-center gap-2">
-              <CheckCircle2 class="w-4 h-4 text-primary-text shrink-0" />
-              <span>عملیات با موفقیت انجام شد (شرط v-if برقرار است)</span>
-            </div>
-            <div v-else-if="statusType === 'warning'" class="text-amber-700 dark:text-amber-300 font-semibold flex items-center gap-2">
-              <AlertTriangle class="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
-              <span>هشدار: مشکلی در سیستم وجود دارد (شرط v-else-if برقرار است)</span>
-            </div>
-            <div v-else class="text-rose-700 dark:text-rose-300 font-semibold flex items-center gap-2">
-              <XCircle class="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0" />
-              <span>خطا رخ داده است (شرط v-else برقرار است)</span>
-            </div>
-          </div>
-        </div>
+        <ConditionalRenderDemo />
       </template>
 
       <template #code>
@@ -158,56 +70,14 @@ function removeFruit(id) {
       </template>
     </ConceptCard>
 
-    <!-- ========================================================= -->
-    <!-- درس ۲: تکرار و لیست‌ها با v-for و راز :key -->
-    <!-- ========================================================= -->
+    <!-- درس ۲: تکرار و لیست‌ها -->
     <ConceptCard
       title="۲. رندر لیست‌ها با v-for و ضرورت حیاتی :key"
       badge="v-for"
       description="برای رندر کردن آرایه‌ها یا آبجکت‌ها از v-for استفاده می‌کنیم. مشخص کردن :key یک شناسه یکتا به Vue می‌دهد تا هنگام تغییر لیست، المان‌های درست را بازاستفاده کند و وضعیت هر آیتم جابه‌جا نشود."
     >
       <template #demo>
-        <div class="space-y-3">
-          <!-- فرم افزودن آیتم -->
-          <form @submit.prevent="addFruit" class="flex gap-2">
-            <input
-              v-model="newFruit"
-              placeholder="نام میوه جدید را بنویسید..."
-              class="flex-1 px-3 py-1.5 border border-border-medium rounded-lg text-sm focus:outline-brand-500"
-            />
-            <button
-              type="submit"
-              class="px-4 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-lg cursor-pointer transition-colors shadow-2xs min-h-9"
-            >
-              افزودن به لیست
-            </button>
-          </form>
-
-          <!-- لیست میوه‌ها -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
-            <div
-              v-for="(fruit, index) in fruits"
-              :key="fruit.id"
-              class="flex items-center justify-between p-2.5 bg-surface-card border border-border-subtle rounded-xl text-sm"
-            >
-              <span class="font-semibold text-text-main">
-                <span class="text-xs text-text-subtle font-mono ml-1">{{ index + 1 }}.</span>
-                {{ fruit.name }}
-                <span class="text-[10px] font-mono text-primary-text bg-primary-light px-1.5 py-0.5 rounded border border-brand-200 mr-1.5">
-                  id: {{ fruit.id }}
-                </span>
-              </span>
-              <button
-                @click="removeFruit(fruit.id)"
-                type="button"
-                class="text-xs text-rose-500 hover:text-rose-700 dark:hover:text-rose-300 hover:bg-rose-50 dark:hover:bg-rose-500/20 px-2 py-1 rounded transition-colors cursor-pointer flex items-center gap-1"
-              >
-                <Trash2 class="w-3.5 h-3.5" />
-                <span>حذف</span>
-              </button>
-            </div>
-          </div>
-        </div>
+        <ListKeyDemo />
       </template>
 
       <template #code>
@@ -224,44 +94,14 @@ function removeFruit(id) {
       </template>
     </ConceptCard>
 
-    <!-- ========================================================= -->
-    <!-- درس ۳: اتصال ویژگی‌ها با v-bind (علامت اختصاری :) -->
-    <!-- ========================================================= -->
+    <!-- درس ۳: اتصال ویژگی‌ها با v-bind -->
     <ConceptCard
       title="۳. اتصال خصوصیات (Attributes) با v-bind (یا :)"
       badge="v-bind / :"
       description="برای وصل کردن متغیرها به ویژگی‌های HTML مانند class، style، href، disabled یا src از پیشوند دونقطه (:) استفاده می‌کنیم."
     >
       <template #demo>
-        <div class="space-y-3">
-          <div class="flex items-center gap-3">
-            <button
-              @click="isButtonActive = !isButtonActive"
-              type="button"
-              class="px-3 py-1.5 bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold rounded-lg cursor-pointer min-h-9"
-            >
-              تغییر وضعیت دکمه
-            </button>
-            <span class="text-xs text-text-body">
-              وضعیت متغیر isButtonActive:
-              <b :class="isButtonActive ? 'text-primary-text' : 'text-rose-600 dark:text-rose-400'">
-                {{ isButtonActive }}
-              </b>
-            </span>
-          </div>
-
-          <!-- المان با کلاس و استایل پویا -->
-          <div
-            :class="[
-              'p-4 rounded-xl border text-sm transition-all duration-300',
-              isButtonActive
-                ? 'bg-primary-light border-emerald-300 dark:border-emerald-500/30 text-emerald-950 dark:text-emerald-200 shadow-sm'
-                : 'bg-surface-subtle border-border-subtle text-text-muted',
-            ]"
-          >
-            <span>این باکس به‌صورت پویا با استفاده از <code>:class</code> استایل خود را تغییر می‌دهد!</span>
-          </div>
-        </div>
+        <DynamicBindingDemo />
       </template>
 
       <template #code>
@@ -272,68 +112,14 @@ function removeFruit(id) {
       </template>
     </ConceptCard>
 
-    <!-- ========================================================= -->
-    <!-- درس ۴: دایرکتیو سفارشی (Custom Directives) و چرخه‌ی حیات آن -->
-    <!-- ========================================================= -->
+    <!-- درس ۴: دایرکتیو سفارشی -->
     <ConceptCard
       title="۴. ساخت دایرکتیو سفارشی (Custom Directives)"
       badge="دستورهای خودمان"
       description="گاهی نیاز دارید کارهایی انجام دهید که نیاز به دسترسی مستقیم به المان واقعی صفحه (DOM) دارد، مثل فوکوس خودکار، هایلایت، یا گوش دادن به اسکرول."
     >
       <template #demo>
-        <div class="space-y-4">
-          <!-- دستور محلی v-focus -->
-          <div class="bg-surface-card p-3.5 rounded-xl border border-border-subtle">
-            <h3 class="font-bold text-xs text-text-body mb-1">دستور محلی v-focus (فوکوس خودکار در زمان لود):</h3>
-            <p class="text-xs text-text-muted mb-2">به محض لود صفحه، کرسر داخل این فیلد قرار گرفته است:</p>
-            <input
-              v-focus
-              placeholder="من با v-focus به‌طور خودکار فوکوس شدم!"
-              class="w-full px-3 py-1.5 border border-border-medium rounded-lg text-sm focus:outline-brand-500"
-            />
-          </div>
-
-          <!-- دستور محلی v-red-bold -->
-          <div class="bg-surface-card p-3.5 rounded-xl border border-border-subtle">
-            <h3 class="font-bold text-xs text-text-body mb-1">دستور محلی v-red-bold:</h3>
-            <p v-red-bold class="text-sm">این متن مستقیماً توسط دایرکتیو v-red-bold قرمز و ضخیم شده است.</p>
-          </div>
-
-          <!-- دستور سراسری v-highlight -->
-          <div class="bg-surface-card p-3.5 rounded-xl border border-border-subtle space-y-3">
-            <h3 class="font-bold text-xs text-text-body">دستور سراسری v-highlight با پارامترها و Modifierها:</h3>
-            
-            <div class="flex flex-wrap items-center gap-3">
-              <label class="text-xs font-bold text-text-body">انتخاب رنگ داینامیک:</label>
-              <select
-                v-model="selectedColor"
-                class="px-2.5 py-1 border border-border-medium rounded-lg text-xs bg-surface-card focus:outline-brand-500"
-              >
-                <option value="#fef08a">زرد پاستلی (#fef08a)</option>
-                <option value="#a7f3d0">سبز نعنایی (#a7f3d0)</option>
-                <option value="#bae6fd">آبی آسمانی (#bae6fd)</option>
-                <option value="#fbcfe8">صورتی ملایم (#fbcfe8)</option>
-              </select>
-            </div>
-
-            <div class="space-y-2 text-sm">
-              <p>
-                ۱. هایلایت ثابت با مقدار داینامیک:
-                <span v-highlight="selectedColor">متن هایلایت شده با رنگ انتخابی</span>
-              </p>
-              <p>
-                ۲. هایلایت فقط در زمان هاور (<code class="text-xs font-mono">v-highlight.hover</code>):
-                <span v-highlight.hover="selectedColor" class="cursor-pointer border-b border-dashed border-border-medium">
-                  ماوس را روی من بیاورید تا هایلایت شوم!
-                </span>
-              </p>
-              <p>
-                ۳. همراه با مودیفایر سایز بزرگ (<code class="text-xs font-mono">v-highlight.big</code>):
-                <span v-highlight.big="'#fde047'">متن بزرگ و هایلایت شده</span>
-              </p>
-            </div>
-          </div>
-        </div>
+        <CustomHighlightDemo />
       </template>
 
       <template #code>
@@ -352,21 +138,12 @@ function removeFruit(id) {
       </template>
     </ConceptCard>
 
-    <!-- کلید راهنمای صفحه بعدی -->
-    <div class="mt-8 p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-500 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm border border-emerald-500/20">
-      <div>
-        <h2 class="font-bold text-base">دستورها را آموختید؟</h2>
-        <p class="text-xs sm:text-sm text-emerald-50 mt-0.5">
-          اکنون زمان بررسی جادوی اصلاح‌کننده‌ها (Modifiers) مثل <code>@click.stop</code> و <code>v-model.lazy</code> است.
-        </p>
-      </div>
-      <router-link
-        to="/modifiers"
-        class="px-4 py-2 bg-white text-emerald-950 hover:bg-emerald-50 hover:text-emerald-900 text-xs sm:text-sm font-bold rounded-xl transition-all shadow-sm shrink-0 flex items-center gap-1.5 cursor-pointer"
-      >
-        <span>رفتن به بخش اصلاح‌کننده‌ها (Modifiers)</span>
-        <ArrowLeft class="w-4 h-4" />
-      </router-link>
-    </div>
+    <!-- بنر هدایت به صفحه بعدی -->
+    <NextStepBanner
+      title="دستورها را آموختید؟"
+      description="اکنون زمان بررسی جادوی اصلاح‌کننده‌ها (Modifiers) مثل @click.stop و v-model.lazy است."
+      to="/modifiers"
+      button-text="رفتن به بخش اصلاح‌کننده‌ها (Modifiers)"
+    />
   </div>
 </template>
