@@ -114,7 +114,7 @@ function handleEnterSubmit() {
           <!-- باکسی که والد آن رویداد کلیک دارد -->
           <div
             @click="handleParentClick"
-            class="p-5 border-2 border-dashed border-emerald-300 dark:border-emerald-500/30 bg-emerald-50/40 rounded-2xl cursor-pointer transition-colors hover:bg-emerald-50/70"
+            class="p-5 border-2 border-dashed border-emerald-300 dark:border-emerald-500/30 bg-emerald-50/40 dark:bg-emerald-500/12 rounded-2xl cursor-pointer transition-colors hover:bg-emerald-50/70 dark:bg-emerald-500/12"
           >
             <div class="flex items-center justify-between mb-3">
               <span class="text-xs font-bold text-emerald-800 dark:text-emerald-300">کادر والد (دارای رویداد کلیک):</span>
@@ -128,7 +128,7 @@ function handleEnterSubmit() {
               <button
                 @click.stop="handleChildClick"
                 type="button"
-                class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl cursor-pointer shadow-xs transition-transform active:scale-95"
+                class="px-3.5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-xl cursor-pointer shadow-xs transition-transform active:scale-95"
               >
                 دکمه فرزند دارای .stop (والد خبردار نمی‌شود)
               </button>
@@ -174,7 +174,7 @@ function handleEnterSubmit() {
             />
             <button
               type="submit"
-              class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-lg cursor-pointer transition-colors shadow-2xs min-h-9"
+              class="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-lg cursor-pointer transition-colors shadow-2xs min-h-9"
             >
               ارسال با @submit.prevent
             </button>
@@ -297,7 +297,7 @@ function handleEnterSubmit() {
               </div>
 
               <!-- ورودی با .number -->
-              <div class="p-2.5 bg-emerald-50/50 rounded-lg border border-emerald-200 dark:border-emerald-500/30">
+              <div class="p-2.5 bg-emerald-50/50 dark:bg-emerald-500/12 rounded-lg border border-emerald-200 dark:border-emerald-500/30">
                 <label class="block text-[11px] font-bold text-emerald-800 dark:text-emerald-300 mb-1">همراه با v-model.number:</label>
                 <input
                   v-model.number="numberValue"

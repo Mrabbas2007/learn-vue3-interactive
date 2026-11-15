@@ -177,7 +177,7 @@ function removeFruit(id) {
             />
             <button
               type="submit"
-              class="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-lg cursor-pointer transition-colors shadow-2xs min-h-9"
+              class="px-4 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-lg cursor-pointer transition-colors shadow-2xs min-h-9"
             >
               افزودن به لیست
             </button>

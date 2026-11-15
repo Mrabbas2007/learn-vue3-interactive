@@ -74,7 +74,7 @@ function incrementRef() {
           <button
             @click="incrementRef"
             type="button"
-            class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-lg transition-transform active:scale-95 cursor-pointer shadow-xs min-h-9"
+            class="px-3.5 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-lg transition-transform active:scale-95 cursor-pointer shadow-xs min-h-9"
           >
             افزایش ref
           </button>
@@ -84,7 +84,7 @@ function incrementRef() {
         </div>
       </div>
 
-      <div class="text-[11px] text-text-body font-mono bg-emerald-50/60 p-2.5 rounded-lg border border-emerald-200 dark:border-emerald-500/30 flex items-center justify-between">
+      <div class="text-[11px] text-text-body font-mono bg-emerald-50/60 dark:bg-emerald-500/12 p-2.5 rounded-lg border border-emerald-200 dark:border-emerald-500/30 flex items-center justify-between">
         <span>وضعیت همگام‌سازی با DOM:</span>
         <b class="text-primary-text font-bold text-xs">۱۰۰٪ خودکار و آنی</b>
       </div>
