@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { Check } from '@lucide/vue'
+import PageHeader from '../components/layout/PageHeader.vue'
 import ConceptCard from '../components/common/ConceptCard.vue'
 import CodeSnippet from '../components/common/CodeSnippet.vue'
 import CalloutBox from '../components/common/CalloutBox.vue'
@@ -103,20 +104,12 @@ async function copyText(text) {
 <template>
   <div class="max-w-4xl mx-auto px-4 py-8">
     <!-- هدر صفحه -->
-    <div class="mb-8">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary-text border border-emerald-200 dark:border-emerald-500/30 mb-3">
-        <span>گام ۶ از نقشه راه</span>
-        <span>•</span>
-        <span>معماری Tailwind CSS v4</span>
-      </div>
-      <h1 class="text-2xl sm:text-3xl font-extrabold text-text-main tracking-tight">
-        دیزاین توکن‌ها (Design Tokens) در Tailwind v4
-      </h1>
-      <p class="text-text-body mt-2 text-sm sm:text-base leading-relaxed">
-        دیزاین توکن‌ها، بنیادی‌ترین اجزای سازنده‌ی یک دیزاین سیستم هستند (رنگ‌ها، فاصله‌ها، گوشه‌ها، فونت‌ها).
-        در Tailwind v4 این توکن‌ها بدون نیاز به فایل جاوااسکریپت، مستقیماً درون بلوک <code class="font-mono text-primary-text bg-primary-light px-1 py-0.5 rounded font-bold">@theme</code> تعریف می‌شوند.
-      </p>
-    </div>
+    <PageHeader
+      step="گام ۶ از نقشه راه"
+      topic="معماری Tailwind CSS v4"
+      title="دیزاین توکن‌ها (Design Tokens) در Tailwind v4"
+      description="دیزاین توکن‌ها، بنیادی‌ترین اجزای سازنده‌ی یک دیزاین سیستم هستند (رنگ‌ها، فاصله‌ها، گوشه‌ها، فونت‌ها). در Tailwind v4 این توکن‌ها بدون نیاز به فایل جاوااسکریپت، مستقیماً درون بلوک @theme تعریف می‌شوند."
+    />
 
     <!-- پالت رنگ‌های برند -->
     <ConceptCard
