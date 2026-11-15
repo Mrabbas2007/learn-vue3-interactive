@@ -143,24 +143,24 @@ function handleTimerTick(data) {
   <div class="max-w-4xl mx-auto px-4 py-8">
     <!-- هدر صفحه -->
     <div class="mb-8">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 mb-3">
-        <span>گام ویژه نقشه راه</span>
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary-light text-primary-text border border-emerald-200 dark:border-emerald-500/30 mb-3">
+        <span>گام ۲ از نقشه راه</span>
         <span>•</span>
         <span>حیات و ممات کامپوننت</span>
       </div>
-      <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-text-main tracking-tight">
         چرخه‌ی حیات (Lifecycle Hooks) در Vue 3
       </h1>
-      <p class="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
+      <p class="text-text-body mt-2 text-sm sm:text-base leading-relaxed">
         هر کامپوننت در Vue درست مثل یک موجود زنده یک چرخه‌ی حیات دارد: متولد می‌شود، به صفحه وصل می‌شود، با تغییر داده‌ها ظاهر خود را تغییر می‌دهد، و در نهایت از بین می‌رود.
       </p>
     </div>
 
     <!-- معرفی بصری با استعاره تئاتر -->
-    <div class="p-5 sm:p-6 bg-gradient-to-r from-slate-900 via-slate-850 to-slate-900 text-white rounded-3xl border border-slate-800 shadow-md mb-8">
+    <div class="p-5 sm:p-6 bg-gradient-to-r from-slate-900 via-slate-900 to-slate-900 text-white rounded-3xl border border-slate-800 shadow-md mb-8">
       <div class="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2">
         <Sparkles class="w-4 h-4 shrink-0 text-emerald-400" />
-        <span>استعاره‌ی صحنه تئاتر: لایف سایکل چیست؟</span>
+        <span>استعاره‌ی صحنه تئاتر: چرخه‌ی حیات چیست؟</span>
       </div>
       <h3 class="text-lg sm:text-xl font-bold mb-3 text-slate-100">
         یک کامپوننت چگونه روی صفحه به نمایش درمی‌آید؟
@@ -199,7 +199,7 @@ function handleTimerTick(data) {
           <LifecycleStageVisualizer :active-stage="activeStage" />
 
           <!-- پنل دکمه‌های کنترل -->
-          <div class="flex flex-wrap items-center justify-between gap-2 p-3 bg-white border border-slate-200 rounded-xl mb-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 p-3 bg-surface-card border border-border-subtle rounded-xl mb-4">
             <div class="flex flex-wrap items-center gap-2">
               <button
                 v-if="!isComponentMounted"
@@ -225,7 +225,7 @@ function handleTimerTick(data) {
             <button
               @click="clearLogs"
               type="button"
-              class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-semibold rounded-lg transition-colors cursor-pointer flex items-center gap-1.5"
+              class="px-3 py-1.5 bg-surface-subtle hover:bg-slate-200 text-text-body text-xs font-semibold rounded-lg transition-colors cursor-pointer flex items-center gap-1.5"
             >
               <RotateCcw class="w-3.5 h-3.5" />
               <span>پاک‌سازی کنسول لاگ‌ها</span>
@@ -238,19 +238,19 @@ function handleTimerTick(data) {
           </div>
           <div
             v-else
-            class="p-6 bg-slate-100 border-2 border-dashed border-slate-300 rounded-2xl text-center text-slate-500 text-xs my-3 font-mono"
+            class="p-6 bg-surface-subtle border-2 border-dashed border-border-medium rounded-2xl text-center text-text-muted text-xs my-3 font-mono"
           >
             کامپوننت در حال حاضر در درخت DOM وجود ندارد (Unmounted). برای تولد مجدد روی دکمه "متولد کردن" کلیک کنید.
           </div>
 
           <!-- کنسول وقایع زنده (Live Event Log) -->
           <div class="mt-4 rounded-xl border border-slate-800 bg-slate-950 overflow-hidden shadow-sm text-left">
-            <div class="flex items-center justify-between px-4 py-2 border-b border-slate-800 bg-slate-900/90 text-xs font-mono text-slate-400">
+            <div class="flex items-center justify-between px-4 py-2 border-b border-slate-800 bg-slate-900/90 text-xs font-mono text-text-subtle">
               <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-500 animate-pulse"></span>
                 <span class="text-slate-300 font-bold font-sans">کنسول ثبت آنی رویدادهای Lifecycle</span>
               </div>
-              <span class="text-[11px] text-slate-500 font-mono">تعداد رویداد: {{ logs.length }}</span>
+              <span class="text-[11px] text-text-muted font-mono">تعداد رویداد: {{ logs.length }}</span>
             </div>
 
             <div class="p-3 max-h-56 overflow-y-auto space-y-2 font-mono text-xs">
@@ -260,7 +260,7 @@ function handleTimerTick(data) {
                 class="p-2 rounded bg-slate-900/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2"
               >
                 <div class="flex items-center gap-2">
-                  <span class="text-[10px] text-slate-500">{{ item.time }}</span>
+                  <span class="text-[10px] text-text-muted">{{ item.time }}</span>
                   <span
                     :class="[
                       'px-2 py-0.5 rounded text-[11px] font-bold',
@@ -278,7 +278,7 @@ function handleTimerTick(data) {
                 <span
                   :class="[
                     'text-[10px] px-1.5 py-0.5 rounded shrink-0 font-sans flex items-center gap-1',
-                    item.domReady ? 'text-emerald-400 bg-emerald-950/60' : 'text-slate-500 bg-slate-800/60',
+                    item.domReady ? 'text-emerald-400 bg-emerald-950/60' : 'text-text-muted bg-slate-800/60',
                   ]"
                 >
                   <Check v-if="item.domReady" class="w-3 h-3" />
@@ -287,7 +287,7 @@ function handleTimerTick(data) {
                 </span>
               </div>
 
-              <div v-if="logs.length === 0" class="text-slate-500 text-center py-4 font-sans text-xs">
+              <div v-if="logs.length === 0" class="text-text-muted text-center py-4 font-sans text-xs">
                 هنوز رویدادی ثبت نشده است. روی دکمه‌های بالا کلیک کنید!
               </div>
             </div>
@@ -314,15 +314,15 @@ function handleTimerTick(data) {
       <template #demo>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <!-- در زمان setup -->
-          <div class="p-4 bg-rose-50/70 border border-rose-200 rounded-xl">
-            <h4 class="font-bold text-xs text-rose-800 mb-1 flex items-center gap-1.5">
+          <div class="p-4 bg-rose-50/70 border border-rose-200 dark:border-rose-500/30 rounded-xl">
+            <h3 class="font-bold text-xs text-rose-800 dark:text-rose-300 mb-1 flex items-center gap-1.5">
               <XCircle class="w-4 h-4 text-rose-500 shrink-0" />
               <span>در فاز Creation / setup():</span>
-            </h4>
+            </h3>
             <p class="text-xs text-rose-900/80 mb-3">
               کدهای اسکریپت هنوز به فایل HTML متصل نشده‌اند:
             </p>
-            <div class="p-2.5 bg-white border border-rose-200 rounded-lg text-xs font-mono text-rose-700">
+            <div class="p-2.5 bg-surface-card border border-rose-200 dark:border-rose-500/30 rounded-lg text-xs font-mono text-rose-700 dark:text-rose-300">
               inputRef.value === null
             </div>
             <p class="text-[11px] text-rose-600 mt-2">
@@ -331,18 +331,18 @@ function handleTimerTick(data) {
           </div>
 
           <!-- در زمان onMounted -->
-          <div class="p-4 bg-emerald-50/70 border border-emerald-200 rounded-xl">
-            <h4 class="font-bold text-xs text-emerald-800 mb-1 flex items-center gap-1.5">
-              <CheckCircle2 class="w-4 h-4 text-emerald-600 shrink-0" />
+          <div class="p-4 bg-emerald-50/70 border border-emerald-200 dark:border-emerald-500/30 rounded-xl">
+            <h3 class="font-bold text-xs text-emerald-800 dark:text-emerald-300 mb-1 flex items-center gap-1.5">
+              <CheckCircle2 class="w-4 h-4 text-primary-text shrink-0" />
               <span>در فاز onMounted():</span>
-            </h4>
+            </h3>
             <p class="text-xs text-emerald-900/80 mb-3">
               المان روی صفحه کشیده شده و آماده‌ی دریافت رویداد و فوکوس است:
             </p>
-            <div class="p-2.5 bg-white border border-emerald-200 rounded-lg text-xs font-mono text-emerald-700">
+            <div class="p-2.5 bg-surface-card border border-emerald-200 dark:border-emerald-500/30 rounded-lg text-xs font-mono text-primary-text">
               inputRef.value === &lt;input class="..."&gt;
             </div>
-            <p class="text-[11px] text-emerald-600 mt-2">
+            <p class="text-[11px] text-primary-text mt-2">
               نتیجه: متدهایی مثل <code>.focus()</code> یا مقداردهی چارت‌ها با موفقیت کامل اجرا می‌شوند!
             </p>
           </div>
@@ -359,7 +359,7 @@ function handleTimerTick(data) {
       <template #callout>
         <CalloutBox type="warning" title="قانون طلایی اتصال به سرور (API Fetching)">
           بهترین جا برای صدا زدن API یا دانلود داده‌های اولیه صفحه کجاست؟<br />
-          پاسخ: هوک <code>onMounted</code> یا به صورت غیرهمگام در اسکریپت، تا کاربر قبل از لود شدن دیتای سرور با یک صفحه سفید یا یخ‌زده مواجه نشود.
+          پاسخ: داخل هوک <code>onMounted</code> (بعد از اولین رندر) یا با <code>async setup</code> و top-level await همراه <code>&lt;Suspense&gt;</code> اگر می‌خواهید صفحه تا آماده شدن داده منتظر بماند.
         </CalloutBox>
       </template>
     </ConceptCard>
@@ -370,17 +370,17 @@ function handleTimerTick(data) {
     <ConceptCard
       title="۳. آزمایشگاه نشت حافظه — چرا onUnmounted بسیار حیاتی است؟"
       badge="بهینه‌سازی منابع و RAM"
-      description="اگر یک تایمر (setInterval) یا ایونت اسکرول window بسازید و هنگام خروج کامپوننت آن را متوقف نکنید، در پس‌زمینه به کار خود ادامه می‌دهد و رم کاربر را می‌بلعد!"
+      description="اگر یک تایمر (setInterval) یا رویداد اسکرول window بسازید و هنگام خروج کامپوننت آن را متوقف نکنید، در پس‌زمینه به کار خود ادامه می‌دهد و رم کاربر را می‌بلعد!"
     >
       <template #demo>
         <div class="space-y-3">
-          <div class="flex flex-wrap items-center justify-between gap-3 p-3 bg-white border border-slate-200 rounded-xl">
+          <div class="flex flex-wrap items-center justify-between gap-3 p-3 bg-surface-card border border-border-subtle rounded-xl">
             <div class="flex items-center gap-2">
-              <label class="text-xs font-bold text-slate-700 flex items-center gap-2 cursor-pointer">
+              <label class="text-xs font-bold text-text-body flex items-center gap-2 cursor-pointer">
                 <input
                   v-model="enableCleanup"
                   type="checkbox"
-                  class="rounded text-emerald-600 focus:ring-emerald-500 w-4 h-4"
+                  class="rounded text-primary-text focus:ring-emerald-500 w-4 h-4"
                 />
                 <span>توقف و پاک‌سازی صحیح تایمر در onUnmounted فعال باشد</span>
               </label>
@@ -389,7 +389,7 @@ function handleTimerTick(data) {
             <button
               @click="showTimerComponent = !showTimerComponent"
               type="button"
-              class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-lg cursor-pointer transition-colors"
+              class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-lg cursor-pointer transition-colors min-h-9"
             >
               {{ showTimerComponent ? 'بستن کامپوننت تایمر' : 'باز کردن مجدد کامپوننت تایمر' }}
             </button>
@@ -406,13 +406,13 @@ function handleTimerTick(data) {
               'p-3 rounded-xl border text-xs font-mono transition-colors flex items-center justify-between',
               isLeaking
                 ? 'bg-rose-50 border-rose-300 text-rose-800 font-bold'
-                : 'bg-slate-100 border-slate-200 text-slate-700',
+                : 'bg-surface-subtle border-border-subtle text-text-body',
             ]"
           >
             <span>{{ timerLog }}</span>
             <span
               v-if="isLeaking"
-              class="px-2 py-0.5 rounded bg-rose-200 text-rose-900 text-[10px] uppercase font-bold tracking-wider shrink-0 mr-2"
+              class="px-2 py-0.5 rounded bg-rose-200 dark:bg-rose-500/25 text-rose-900 dark:text-rose-300 text-[10px] uppercase font-bold tracking-wider shrink-0 mr-2"
             >
               Leak Detected
             </span>
@@ -436,46 +436,46 @@ function handleTimerTick(data) {
       </template>
     </ConceptCard>
 
-    <!-- جدول تقلب هوک‌های چرخه حیات -->
-    <div class="my-8 bg-white border border-slate-200 rounded-2xl p-5 shadow-xs">
-      <h3 class="text-base font-bold text-slate-800 mb-3 flex items-center gap-2">
-        <ClipboardList class="w-4 h-4 text-emerald-600 shrink-0" />
+    <!-- جدول تقلب هوک‌های چرخه‌ی حیات -->
+    <div class="my-8 bg-surface-card border border-border-subtle rounded-2xl p-5 shadow-xs">
+      <h3 class="text-base font-bold text-text-main mb-3 flex items-center gap-2">
+        <ClipboardList class="w-4 h-4 text-primary-text shrink-0" />
         <span>جدول راهنمای سریع هوک‌های Lifecycle در Vue 3</span>
       </h3>
       <div class="overflow-x-auto">
         <table class="w-full text-right text-xs">
-          <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+          <thead class="bg-surface-subtle text-text-body font-bold border-b border-border-subtle">
             <tr>
               <th class="p-2.5">هوک در Vue 3</th>
               <th class="p-2.5">زمان اجرا</th>
               <th class="p-2.5">کارهای مجاز و پیشنهادی</th>
-              <th class="p-2.5 text-slate-500">معادل در Options API</th>
+              <th class="p-2.5 text-text-muted">معادل در Options API</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-slate-100">
             <tr>
-              <td class="p-2.5 font-mono font-bold text-emerald-700">setup()</td>
-              <td class="p-2.5 text-slate-600">اولین گام پس از تعریف</td>
-              <td class="p-2.5 text-slate-600">تعریف متغیرهای ref و reactive، فرمول‌های computed</td>
-              <td class="p-2.5 font-mono text-slate-400">beforeCreate / created</td>
+              <td class="p-2.5 font-mono font-bold text-primary-text">setup()</td>
+              <td class="p-2.5 text-text-body">اولین گام پس از تعریف</td>
+              <td class="p-2.5 text-text-body">تعریف متغیرهای ref و reactive، فرمول‌های computed</td>
+              <td class="p-2.5 font-mono text-text-subtle">beforeCreate / created</td>
             </tr>
             <tr>
-              <td class="p-2.5 font-mono font-bold text-teal-700">onMounted</td>
-              <td class="p-2.5 text-slate-600">پس از اتصال کامل به DOM</td>
-              <td class="p-2.5 text-slate-600">درخواست‌های API اولیه، فوکوس ورودی، چارت‌ها و تایمرها</td>
-              <td class="p-2.5 font-mono text-slate-400">mounted</td>
+              <td class="p-2.5 font-mono font-bold text-teal-700 dark:text-teal-300">onMounted</td>
+              <td class="p-2.5 text-text-body">پس از اتصال کامل به DOM</td>
+              <td class="p-2.5 text-text-body">درخواست‌های API اولیه، فوکوس ورودی، چارت‌ها و تایمرها</td>
+              <td class="p-2.5 font-mono text-text-subtle">mounted</td>
             </tr>
             <tr>
-              <td class="p-2.5 font-mono font-bold text-amber-700">onUpdated</td>
-              <td class="p-2.5 text-slate-600">پس از اعمال تغییرات در DOM</td>
-              <td class="p-2.5 text-slate-600">واکنش به رندر مجدد المان‌ها، اسکرول خودکار به انتهای چت</td>
-              <td class="p-2.5 font-mono text-slate-400">updated</td>
+              <td class="p-2.5 font-mono font-bold text-amber-700 dark:text-amber-300">onUpdated</td>
+              <td class="p-2.5 text-text-body">پس از اعمال تغییرات در DOM</td>
+              <td class="p-2.5 text-text-body">واکنش به رندر مجدد المان‌ها، اسکرول خودکار به انتهای چت</td>
+              <td class="p-2.5 font-mono text-text-subtle">updated</td>
             </tr>
             <tr>
-              <td class="p-2.5 font-mono font-bold text-rose-700">onUnmounted</td>
-              <td class="p-2.5 text-slate-600">پس از حذف کامل از صفحه</td>
-              <td class="p-2.5 text-slate-600">لغو تایمرها، پاک‌سازی ایونت‌های window، بستن سوکت‌ها</td>
-              <td class="p-2.5 font-mono text-slate-400">unmounted (destroyed)</td>
+              <td class="p-2.5 font-mono font-bold text-rose-700 dark:text-rose-300">onUnmounted</td>
+              <td class="p-2.5 text-text-body">پس از حذف کامل از صفحه</td>
+              <td class="p-2.5 text-text-body">لغو تایمرها، پاک‌سازی رویداد‌های window، بستن سوکت‌ها</td>
+              <td class="p-2.5 font-mono text-text-subtle">unmounted</td>
             </tr>
           </tbody>
         </table>
@@ -485,14 +485,14 @@ function handleTimerTick(data) {
     <!-- دکمه هدایت به صفحه بعدی -->
     <div class="mt-8 p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-500 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
       <div>
-        <h4 class="font-bold text-base">چرخه حیات را درک کردید؟</h4>
-        <p class="text-xs sm:text-sm text-emerald-100 mt-0.5">
+        <h2 class="font-bold text-base">چرخه‌ی حیات را درک کردید؟</h2>
+        <p class="text-xs sm:text-sm text-emerald-100 dark:text-emerald-300 mt-0.5">
           حالا که می‌دانید کامپوننت و المان‌ها چگونه متولد و آپدیت می‌شوند، وقت بررسی دقیق دایرکتیوهاست!
         </p>
       </div>
       <router-link
         to="/directives"
-        class="px-4 py-2 bg-white text-emerald-700 hover:bg-emerald-50 text-xs sm:text-sm font-bold rounded-xl transition-all shadow-xs shrink-0 flex items-center gap-1.5"
+        class="px-4 py-2 bg-surface-card text-primary-text hover:bg-emerald-50 text-xs sm:text-sm font-bold rounded-xl transition-all shadow-xs shrink-0 flex items-center gap-1.5"
       >
         <span>رفتن به بخش دستورها (Directives)</span>
         <ArrowLeft class="w-4 h-4" />

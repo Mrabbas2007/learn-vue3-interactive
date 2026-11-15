@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mrabbas2007.github.io/learn-vue3-interactive/sitemap.xml

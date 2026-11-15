@@ -70,7 +70,7 @@ onBeforeUnmount(() => {
 })
 
 onUnmounted(() => {
-  log('onUnmounted', 'unmount', 'کامپوننت به طور کامل از صفحه (DOM) پاک شد و حافظه آزاد گردید.')
+  log('onUnmounted', 'unmount', 'کامپوننت به‌طور کامل از صفحه (DOM) پاک شد و حافظه آزاد گردید.')
 })
 </script>
 
@@ -81,7 +81,7 @@ onUnmounted(() => {
   >
     <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
       <div class="flex items-center gap-2">
-        <span class="w-3 h-3 rounded-full bg-white animate-pulse"></span>
+        <span class="w-3 h-3 rounded-full bg-surface-card animate-pulse"></span>
         <span class="font-extrabold text-sm sm:text-base">
           من یک کامپوننت زنده در DOM هستم!
         </span>
@@ -91,19 +91,19 @@ onUnmounted(() => {
       </span>
     </div>
 
-    <p class="text-xs text-emerald-50 leading-relaxed mb-4">
+    <p class="text-xs text-emerald-50 dark:text-emerald-300 leading-relaxed mb-4">
       با کلیک روی دکمه زیر، مقدار متغیر را تغییر دهید تا اجرای هوک‌های
-      <code class="bg-black/20 px-1.5 py-0.5 rounded font-mono text-emerald-200">onBeforeUpdate</code>
+      <code class="bg-black/20 px-1.5 py-0.5 rounded font-mono text-emerald-200 dark:text-emerald-300">onBeforeUpdate</code>
       و
-      <code class="bg-black/20 px-1.5 py-0.5 rounded font-mono text-emerald-200">onUpdated</code>
-      را به صورت زنده ببینید:
+      <code class="bg-black/20 px-1.5 py-0.5 rounded font-mono text-emerald-200 dark:text-emerald-300">onUpdated</code>
+      را به‌صورت زنده ببینید:
     </p>
 
     <div class="flex items-center gap-4">
       <button
         @click="counter++"
         type="button"
-        class="px-4 py-2 bg-white text-emerald-800 hover:bg-emerald-50 font-bold text-xs rounded-xl shadow-xs transition-transform active:scale-95 cursor-pointer flex items-center gap-1.5"
+        class="px-4 py-2 bg-surface-card text-emerald-800 dark:text-emerald-300 hover:bg-emerald-50 font-bold text-xs rounded-xl shadow-xs transition-transform active:scale-95 cursor-pointer flex items-center gap-1.5"
       >
         <Zap class="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
         <span>افزایش مقدار شمارنده</span>

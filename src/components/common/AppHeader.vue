@@ -1,31 +1,61 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch, onMounted, onUnmounted, nextTick } from 'vue'
+import { useRoute } from 'vue-router'
+import { Sun, Moon, Menu, X } from '@lucide/vue'
+import { useTheme } from '../../composables/useTheme'
+
+const { theme, toggleTheme } = useTheme()
+const route = useRoute()
 
 const isMobileMenuOpen = ref(false)
+const menuButton = ref(null)
 
 const navLinks = [
   { path: '/', label: 'خانه' },
   { path: '/basics', label: 'مفاهیم پایه' },
-  { path: '/lifecycle', label: 'چرخه حیات' },
+  { path: '/lifecycle', label: 'چرخه‌ی حیات' },
   { path: '/directives', label: 'دستورها' },
   { path: '/modifiers', label: 'اصلاح‌کننده‌ها' },
   { path: '/compare', label: 'تفاوت‌ها' },
-  { path: '/tokens', label: 'دیزاین توکن‌ها' },
+  { path: '/tokens', label: 'دی‌زاین توکن‌ها' },
 ]
+
+// بستن خودکار منوی موبایل بعد از تغییر مسیر
+watch(
+  () => route.fullPath,
+  () => {
+    isMobileMenuOpen.value = false
+  },
+)
+
+// بستن منو و بازگرداندن فوکوس با کلید Escape (دسترس‌پذیری)
+function handleKeydown(event) {
+  if (event.key === 'Escape' && isMobileMenuOpen.value) {
+    isMobileMenuOpen.value = false
+    nextTick(() => menuButton.value?.focus())
+  }
+}
+
+onMounted(() => window.addEventListener('keydown', handleKeydown))
+onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+  <header
+    class="sticky top-0 z-50 bg-surface-header backdrop-blur-md border-b border-border-subtle shadow-xs"
+  >
+    <div class="max-w-6xl mx-auto flex h-14 sm:h-16 items-center justify-between gap-2 px-3 sm:px-6">
       <!-- لوگو و عنوان پروژه -->
-      <router-link to="/" class="flex items-center gap-3 group shrink-0">
-        <div class="w-9 h-9 rounded-xl bg-slate-900/5 border border-slate-200/80 p-1.5 flex items-center justify-center shadow-2xs group-hover:scale-105 group-hover:border-emerald-400 group-hover:bg-emerald-500/10 transition-all duration-300">
+      <router-link
+        to="/"
+        class="flex items-center gap-2.5 sm:gap-3 group min-w-0 shrink"
+        aria-label="خانه — کارگاه یادگیری Vue 3"
+      >
+        <div
+          class="w-9 h-9 shrink-0 rounded-xl bg-surface-subtle border border-border-subtle p-1.5 flex items-center justify-center shadow-2xs group-hover:scale-105 group-hover:border-brand-400 group-hover:bg-primary-light transition-all duration-300"
+        >
           <!-- لوگوی رسمی و دقیق Vue.js -->
-          <svg
-            viewBox="0 0 261.76 226.69"
-            class="w-full h-full drop-shadow-xs"
-            aria-label="لوگوی Vue.js"
-          >
+          <svg viewBox="0 0 261.76 226.69" class="w-full h-full drop-shadow-xs" aria-hidden="true">
             <path
               d="M161.096.001l-30.225 52.351L100.647.001H-.005l130.877 226.688L261.749.001z"
               fill="#41B883"
@@ -36,65 +66,79 @@ const navLinks = [
             />
           </svg>
         </div>
-        <span class="font-extrabold text-slate-800 text-sm sm:text-base group-hover:text-emerald-600 transition-colors whitespace-nowrap">
+        <span
+          class="font-extrabold text-text-main text-sm sm:text-base truncate group-hover:text-primary-text transition-colors"
+        >
           کارگاه یادگیری Vue 3
         </span>
       </router-link>
 
       <!-- منوی دسکتاپ -->
-      <nav class="hidden md:flex items-center gap-0.5 lg:gap-1">
+      <nav class="hidden lg:flex items-center gap-0.5 lg:gap-1" aria-label="ناوبری اصلی">
         <router-link
           v-for="link in navLinks"
           :key="link.path"
           :to="link.path"
-          class="whitespace-nowrap px-2 lg:px-2.5 py-1.5 rounded-lg text-xs lg:text-[13px] font-semibold text-slate-600 hover:text-emerald-600 hover:bg-slate-100/70 transition-all"
-          active-class="!text-emerald-700 !bg-emerald-50 font-bold shadow-xs"
+          class="whitespace-nowrap px-2 lg:px-2.5 py-2.5 rounded-lg text-xs lg:text-[13px] font-semibold text-text-muted hover:text-primary-text hover:bg-surface-subtle transition-all"
+          active-class="!text-primary-text !bg-primary-light font-bold shadow-xs"
         >
           {{ link.label }}
         </router-link>
       </nav>
 
-      <!-- دکمه منوی موبایل -->
-      <button
-        @click="isMobileMenuOpen = !isMobileMenuOpen"
-        type="button"
-        class="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none cursor-pointer"
-        aria-label="منو"
-      >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            v-if="!isMobileMenuOpen"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-          <path
-            v-else
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
+      <div class="flex items-center gap-1 sm:gap-1.5 shrink-0">
+        <!-- کلید تغییر تم روشن/تاریک -->
+        <button
+          @click="toggleTheme"
+          type="button"
+          class="w-10 h-10 flex items-center justify-center rounded-lg text-text-muted hover:text-primary-text hover:bg-surface-subtle transition-colors cursor-pointer"
+          :aria-label="theme === 'dark' ? 'تغییر به حالت روشن' : 'تغییر به حالت تاریک'"
+          :title="theme === 'dark' ? 'حالت روشن' : 'حالت تاریک'"
+        >
+          <Sun v-if="theme === 'dark'" class="w-5 h-5" aria-hidden="true" />
+          <Moon v-else class="w-5 h-5" aria-hidden="true" />
+        </button>
+
+        <!-- دکمه منوی موبایل -->
+        <button
+          ref="menuButton"
+          @click="isMobileMenuOpen = !isMobileMenuOpen"
+          type="button"
+          class="w-10 h-10 flex items-center justify-center rounded-lg text-text-muted hover:text-text-main hover:bg-surface-subtle transition-colors cursor-pointer lg:hidden"
+          :aria-label="isMobileMenuOpen ? 'بستن منو' : 'باز کردن منو'"
+          :aria-expanded="isMobileMenuOpen"
+          aria-controls="mobile-navigation"
+        >
+          <X v-if="isMobileMenuOpen" class="w-6 h-6" aria-hidden="true" />
+          <Menu v-else class="w-6 h-6" aria-hidden="true" />
+        </button>
+      </div>
     </div>
 
-    <!-- منوی کشویی موبایل -->
-    <div
-      v-show="isMobileMenuOpen"
-      class="md:hidden border-b border-slate-200 bg-white px-4 py-3 space-y-1 shadow-lg"
+    <!-- منوی کشویی موبایل / تبلت -->
+    <transition
+      enter-active-class="transition duration-150 ease-out"
+      enter-from-class="-translate-y-2 opacity-0"
+      leave-active-class="transition duration-100 ease-in"
+      leave-to-class="-translate-y-2 opacity-0"
     >
-      <router-link
-        v-for="link in navLinks"
-        :key="link.path"
-        :to="link.path"
-        @click="isMobileMenuOpen = false"
-        class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700"
-        active-class="bg-emerald-50 text-emerald-700 font-bold"
+      <nav
+        v-show="isMobileMenuOpen"
+        id="mobile-navigation"
+        class="lg:hidden border-b border-border-subtle bg-surface-card px-3 pb-3 shadow-lg"
+        aria-label="ناوبری موبایل"
       >
-        {{ link.label }}
-      </router-link>
-    </div>
+        <router-link
+          v-for="link in navLinks"
+          :key="link.path"
+          :to="link.path"
+          @click="isMobileMenuOpen = false"
+          class="flex items-center min-h-11 px-3 rounded-lg text-sm font-medium text-text-body hover:bg-primary-light hover:text-primary-text transition-colors"
+          active-class="bg-primary-light text-primary-text font-bold"
+        >
+          {{ link.label }}
+        </router-link>
+      </nav>
+    </transition>
   </header>
 </template>

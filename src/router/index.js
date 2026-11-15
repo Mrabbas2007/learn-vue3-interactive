@@ -7,6 +7,7 @@ import DirectivesView from '../views/DirectivesView.vue'
 import ModifiersView from '../views/ModifiersView.vue'
 import CompareView from '../views/CompareView.vue'
 import TokensView from '../views/TokensView.vue'
+import NotFoundView from '../views/NotFoundView.vue'
 
 const routes = [
   {
@@ -25,7 +26,7 @@ const routes = [
     path: '/lifecycle',
     name: 'lifecycle',
     component: LifecycleView,
-    meta: { title: 'چرخه حیات — Lifecycle Hooks' },
+    meta: { title: 'چرخه‌ی حیات — Lifecycle Hooks' },
   },
   {
     path: '/directives',
@@ -50,6 +51,13 @@ const routes = [
     name: 'tokens',
     component: TokensView,
     meta: { title: 'ویترین دیزاین توکن‌های Tailwind v4' },
+  },
+  {
+    // مسیر عمومی برای آدرس‌های نامعتبر: به‌جای صفحه‌ی خالی، 404 واقعی نشان می‌دهد
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: NotFoundView,
+    meta: { title: 'صفحه پیدا نشد' },
   },
 ]
 
