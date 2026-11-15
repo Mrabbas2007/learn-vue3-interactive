@@ -48,7 +48,7 @@ const suggestions = [
       </button>
       <router-link
         to="/"
-        class="inline-flex items-center justify-center gap-2 min-h-11 px-5 rounded-lg bg-brand-600 text-white text-sm font-bold hover:bg-brand-700 transition-colors"
+        class="inline-flex items-center justify-center gap-2 min-h-11 px-5 rounded-lg bg-brand-700 text-white text-sm font-bold hover:bg-brand-800 transition-colors"
       >
         رفتن به خانه
         <ArrowLeft class="w-4 h-4" aria-hidden="true" />

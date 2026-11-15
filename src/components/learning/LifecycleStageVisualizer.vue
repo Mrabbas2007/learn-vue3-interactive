@@ -54,7 +54,7 @@ const stages = [
           'relative p-4 rounded-2xl border transition-all duration-300 flex flex-col justify-between',
           activeStage === st.id
             ? 'bg-surface-card border-emerald-500 shadow-md ring-2 ring-emerald-400/30 -translate-y-1'
-            : 'bg-slate-50/70 border-border-subtle opacity-75 hover:opacity-100',
+            : 'bg-slate-50/70 dark:bg-slate-500/12 border-border-subtle opacity-75 hover:opacity-100',
         ]"
       >
         <!-- نشانگر اجرای زنده -->

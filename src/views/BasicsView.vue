@@ -162,7 +162,7 @@ const manualModelDemo = ref('سلام دنیا')
                 <button
                   @click="incrementRefAge"
                   type="button"
-                  class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-lg cursor-pointer min-h-9"
+                  class="px-2.5 py-1 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-lg cursor-pointer min-h-9"
                 >
                   افزایش سن شیء (userRef.value.age++)
                 </button>

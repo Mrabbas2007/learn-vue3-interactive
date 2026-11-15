@@ -205,7 +205,7 @@ function handleTimerTick(data) {
                 v-if="!isComponentMounted"
                 @click="mountComponent"
                 type="button"
-                class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-xs transition-all cursor-pointer flex items-center gap-1.5"
+                class="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs rounded-xl shadow-xs transition-all cursor-pointer flex items-center gap-1.5"
               >
                 <Play class="w-3.5 h-3.5 fill-current" />
                 <span>متولد کردن کامپوننت (Mount)</span>
@@ -314,7 +314,7 @@ function handleTimerTick(data) {
       <template #demo>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <!-- در زمان setup -->
-          <div class="p-4 bg-rose-50/70 border border-rose-200 dark:border-rose-500/30 rounded-xl">
+          <div class="p-4 bg-rose-50/70 dark:bg-rose-500/12 border border-rose-200 dark:border-rose-500/30 rounded-xl">
             <h3 class="font-bold text-xs text-rose-800 dark:text-rose-300 mb-1 flex items-center gap-1.5">
               <XCircle class="w-4 h-4 text-rose-500 shrink-0" />
               <span>در فاز Creation / setup():</span>
@@ -331,7 +331,7 @@ function handleTimerTick(data) {
           </div>
 
           <!-- در زمان onMounted -->
-          <div class="p-4 bg-emerald-50/70 border border-emerald-200 dark:border-emerald-500/30 rounded-xl">
+          <div class="p-4 bg-emerald-50/70 dark:bg-emerald-500/12 border border-emerald-200 dark:border-emerald-500/30 rounded-xl">
             <h3 class="font-bold text-xs text-emerald-800 dark:text-emerald-300 mb-1 flex items-center gap-1.5">
               <CheckCircle2 class="w-4 h-4 text-primary-text shrink-0" />
               <span>در فاز onMounted():</span>

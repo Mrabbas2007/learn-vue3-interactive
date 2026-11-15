@@ -46,7 +46,7 @@ defineProps({
         <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
         <span>آزمایشگاه تعاملی (تست زنده)</span>
       </div>
-      <div class="bg-slate-50/70 border border-border-subtle rounded-xl p-4">
+      <div class="bg-slate-50/70 dark:bg-slate-500/12 border border-border-subtle rounded-xl p-4">
         <slot name="demo" />
       </div>
     </div>

@@ -109,7 +109,7 @@ const isShowVisible = ref(true)
             </p>
             <div
               @click="parentClicks++"
-              class="p-3 border-2 border-dashed border-indigo-200 dark:border-indigo-500/30 rounded-lg bg-indigo-50/30 flex flex-col gap-2.5"
+              class="p-3 border-2 border-dashed border-indigo-200 dark:border-indigo-500/30 rounded-lg bg-indigo-50/30 dark:bg-indigo-500/12 flex flex-col gap-2.5"
             >
               <div class="flex items-center justify-between">
                 <span class="text-xs font-bold text-indigo-900 dark:text-indigo-300">کادر والد (شنونده کلیک):</span>
@@ -133,7 +133,7 @@ const isShowVisible = ref(true)
                   کلیک بدون stop (والد هم شمرده می‌شود!)
                 </button>
               </div>
-              <div class="text-[11px] font-mono text-text-body bg-white/70 p-1.5 rounded border border-indigo-100 dark:border-indigo-500/30 flex items-center justify-between">
+              <div class="text-[11px] font-mono text-text-body bg-surface-card/70 p-1.5 rounded border border-indigo-100 dark:border-indigo-500/30 flex items-center justify-between">
                 <span>کلیک‌های فرزند دارای stop: <b>{{ stopClicks }}</b></span>
                 <span>کلیک‌های فرزند بدون stop: <b>{{ normalChildClicks }}</b></span>
               </div>
@@ -195,7 +195,7 @@ const isShowVisible = ref(true)
             </div>
 
             <!-- وضعیت زنده در DOM -->
-            <div class="mt-3 p-2 rounded-lg bg-rose-50/70 border border-rose-200 dark:border-rose-500/30 text-[11px] font-mono text-rose-800 dark:text-rose-300 flex items-center justify-between">
+            <div class="mt-3 p-2 rounded-lg bg-rose-50/70 dark:bg-rose-500/12 border border-rose-200 dark:border-rose-500/30 text-[11px] font-mono text-rose-800 dark:text-rose-300 flex items-center justify-between">
               <span>وضعیت در DOM:</span>
               <b>{{ isIfVisible ? 'تزریق شده در DOM (فعال)' : 'کاملاً حذف شده از DOM' }}</b>
             </div>
@@ -227,7 +227,7 @@ const isShowVisible = ref(true)
             </div>
 
             <!-- وضعیت زنده در DOM -->
-            <div class="mt-3 p-2 rounded-lg bg-emerald-50/70 border border-emerald-200 dark:border-emerald-500/30 text-[11px] font-mono text-emerald-800 dark:text-emerald-300 flex items-center justify-between">
+            <div class="mt-3 p-2 rounded-lg bg-emerald-50/70 dark:bg-emerald-500/12 border border-emerald-200 dark:border-emerald-500/30 text-[11px] font-mono text-emerald-800 dark:text-emerald-300 flex items-center justify-between">
               <span>وضعیت در DOM:</span>
               <b>{{ isShowVisible ? 'نمایش با استایل عادی' : 'پنهان با style="display: none"' }}</b>
             </div>

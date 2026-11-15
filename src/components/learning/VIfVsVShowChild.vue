@@ -28,13 +28,13 @@ onUnmounted(() => {
     :class="[
       'p-3.5 rounded-xl border transition-all text-xs space-y-2.5',
       type === 'if'
-        ? 'bg-rose-50/50 border-rose-200 text-rose-900'
-        : 'bg-emerald-50/50 border-emerald-200 text-emerald-900',
+        ? 'bg-rose-50/50 dark:bg-rose-500/10 border-rose-200 dark:border-rose-500/30 text-rose-900 dark:text-rose-200'
+        : 'bg-emerald-50/50 dark:bg-emerald-500/10 border-emerald-200 dark:border-emerald-500/30 text-emerald-900 dark:text-emerald-200',
     ]"
   >
     <div class="flex items-center justify-between">
       <span class="font-bold">کامپوننت فرزند مستقل (دارای حافظه محلی):</span>
-      <span class="font-mono text-[10px] px-2 py-0.5 rounded bg-white/80 border">
+      <span class="font-mono text-[10px] px-2 py-0.5 rounded bg-surface-card/80 border">
         زمان ایجاد در DOM: {{ mountTime }}
       </span>
     </div>
@@ -61,7 +61,7 @@ onUnmounted(() => {
         type="button"
         :class="[
           'px-2.5 py-1 text-white font-bold rounded-lg cursor-pointer transition-transform active:scale-95 flex items-center gap-1',
-          type === 'if' ? 'bg-rose-600 hover:bg-rose-700' : 'bg-emerald-600 hover:bg-emerald-700',
+          type === 'if' ? 'bg-rose-600 hover:bg-rose-700' : 'bg-emerald-700 hover:bg-emerald-800',
         ]"
       >
         <Plus class="w-3.5 h-3.5" />

@@ -94,7 +94,7 @@ const chapters = [
          بخش هیرو با پس‌زمینه شیشه‌ای مدرن (Glassmorphic Hero)
          ======================================================== -->
     <section
-      class="relative mb-16 sm:mb-20 rounded-3xl p-6 sm:p-10 lg:p-12 bg-white/60 backdrop-blur-xl border border-white/80 shadow-[0_10px_35px_-5px_rgba(16,185,129,0.06),0_1px_3px_0_rgba(0,0,0,0.02)] overflow-hidden"
+      class="relative mb-16 sm:mb-20 rounded-3xl p-6 sm:p-10 lg:p-12 bg-surface-card/70 backdrop-blur-xl border border-border-subtle shadow-[0_10px_35px_-5px_rgba(16,185,129,0.06),0_1px_3px_0_rgba(0,0,0,0.02)] overflow-hidden"
     >
       <!-- خط هایلایت انعکاس نور بالای شیشه -->
       <div
@@ -149,7 +149,7 @@ const chapters = [
           <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-3">
             <router-link
               to="/basics"
-              class="px-7 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition-all shadow-sm hover:shadow-emerald-500/25 hover:shadow-lg active:scale-98 flex items-center gap-2 cursor-pointer"
+              class="px-7 py-3.5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-sm rounded-xl transition-all shadow-sm hover:shadow-emerald-500/25 hover:shadow-lg active:scale-98 flex items-center gap-2 cursor-pointer"
             >
               <span>شروع یادگیری از گام اول</span>
               <ArrowLeft class="w-4 h-4" />
@@ -183,7 +183,7 @@ const chapters = [
               class="absolute inset-x-0 -bottom-2 flex justify-center pointer-events-none"
             >
               <div
-                class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold text-text-muted bg-white/80 backdrop-blur-sm border border-border-subtle shadow-2xs"
+                class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold text-text-muted bg-surface-card/85 backdrop-blur-sm border border-border-subtle shadow-2xs"
               >
                 <MousePointer2 class="w-3 h-3 text-primary-text" />
                 <span>گوی را با ماوس بچرخانید</span>
