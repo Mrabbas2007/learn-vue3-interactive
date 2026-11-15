@@ -225,7 +225,7 @@ function handleTimerTick(data) {
             <button
               @click="clearLogs"
               type="button"
-              class="px-3 py-1.5 bg-surface-subtle hover:bg-slate-200 text-text-body text-xs font-semibold rounded-lg transition-colors cursor-pointer flex items-center gap-1.5"
+              class="px-3 py-1.5 bg-surface-subtle hover:bg-slate-200 dark:hover:bg-surface-hover text-text-body text-xs font-semibold rounded-lg transition-colors cursor-pointer flex items-center gap-1.5"
             >
               <RotateCcw class="w-3.5 h-3.5" />
               <span>پاک‌سازی کنسول لاگ‌ها</span>
@@ -314,35 +314,35 @@ function handleTimerTick(data) {
       <template #demo>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <!-- در زمان setup -->
-          <div class="p-4 bg-rose-50/70 dark:bg-rose-500/12 border border-rose-200 dark:border-rose-500/30 rounded-xl">
-            <h3 class="font-bold text-xs text-rose-800 dark:text-rose-300 mb-1 flex items-center gap-1.5">
+          <div class="p-4 bg-danger-surface border border-danger-border rounded-xl">
+            <h3 class="font-bold text-xs text-danger-text mb-1 flex items-center gap-1.5">
               <XCircle class="w-4 h-4 text-rose-500 shrink-0" />
               <span>در فاز Creation / setup():</span>
             </h3>
-            <p class="text-xs text-rose-900/80 mb-3">
+            <p class="text-xs text-danger-subtle mb-3">
               کدهای اسکریپت هنوز به فایل HTML متصل نشده‌اند:
             </p>
-            <div class="p-2.5 bg-surface-card border border-rose-200 dark:border-rose-500/30 rounded-lg text-xs font-mono text-rose-700 dark:text-rose-300">
+            <div class="p-2.5 bg-surface-card border border-danger-border rounded-lg text-xs font-mono text-danger-text">
               inputRef.value === null
             </div>
-            <p class="text-[11px] text-rose-600 mt-2">
+            <p class="text-[11px] text-danger-subtle mt-2">
               نتیجه فراخوانی متد: <code class="font-mono font-bold">TypeError: Cannot read properties of null</code>
             </p>
           </div>
 
           <!-- در زمان onMounted -->
-          <div class="p-4 bg-emerald-50/70 dark:bg-emerald-500/12 border border-emerald-200 dark:border-emerald-500/30 rounded-xl">
-            <h3 class="font-bold text-xs text-emerald-800 dark:text-emerald-300 mb-1 flex items-center gap-1.5">
-              <CheckCircle2 class="w-4 h-4 text-primary-text shrink-0" />
+          <div class="p-4 bg-success-surface border border-success-border rounded-xl">
+            <h3 class="font-bold text-xs text-success-text mb-1 flex items-center gap-1.5">
+              <CheckCircle2 class="w-4 h-4 text-primary shrink-0" />
               <span>در فاز onMounted():</span>
             </h3>
-            <p class="text-xs text-emerald-900/80 mb-3">
+            <p class="text-xs text-success-subtle mb-3">
               المان روی صفحه کشیده شده و آماده‌ی دریافت رویداد و فوکوس است:
             </p>
-            <div class="p-2.5 bg-surface-card border border-emerald-200 dark:border-emerald-500/30 rounded-lg text-xs font-mono text-primary-text">
+            <div class="p-2.5 bg-surface-card border border-success-border rounded-lg text-xs font-mono text-success-text">
               inputRef.value === &lt;input class="..."&gt;
             </div>
-            <p class="text-[11px] text-primary-text mt-2">
+            <p class="text-[11px] text-success-subtle mt-2">
               نتیجه: متدهایی مثل <code>.focus()</code> یا مقداردهی چارت‌ها با موفقیت کامل اجرا می‌شوند!
             </p>
           </div>
@@ -405,14 +405,14 @@ function handleTimerTick(data) {
             :class="[
               'p-3 rounded-xl border text-xs font-mono transition-colors flex items-center justify-between',
               isLeaking
-                ? 'bg-rose-50 border-rose-300 text-rose-800 font-bold'
+                ? 'bg-danger-surface border-danger-border text-danger-text font-bold'
                 : 'bg-surface-subtle border-border-subtle text-text-body',
             ]"
           >
             <span>{{ timerLog }}</span>
             <span
               v-if="isLeaking"
-              class="px-2 py-0.5 rounded bg-rose-200 dark:bg-rose-500/25 text-rose-900 dark:text-rose-300 text-[10px] uppercase font-bold tracking-wider shrink-0 mr-2"
+              class="px-2 py-0.5 rounded bg-rose-200 dark:bg-rose-500/25 text-rose-900 dark:text-rose-200 text-[10px] uppercase font-bold tracking-wider shrink-0 mr-2"
             >
               Leak Detected
             </span>
@@ -452,7 +452,7 @@ function handleTimerTick(data) {
               <th class="p-2.5 text-text-muted">معادل در Options API</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-100">
+          <tbody class="divide-y divide-border-subtle">
             <tr>
               <td class="p-2.5 font-mono font-bold text-primary-text">setup()</td>
               <td class="p-2.5 text-text-body">اولین گام پس از تعریف</td>
@@ -483,16 +483,16 @@ function handleTimerTick(data) {
     </div>
 
     <!-- دکمه هدایت به صفحه بعدی -->
-    <div class="mt-8 p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-500 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+    <div class="mt-8 p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-500 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm border border-emerald-500/20">
       <div>
         <h2 class="font-bold text-base">چرخه‌ی حیات را درک کردید؟</h2>
-        <p class="text-xs sm:text-sm text-emerald-100 dark:text-emerald-300 mt-0.5">
+        <p class="text-xs sm:text-sm text-emerald-50 mt-0.5">
           حالا که می‌دانید کامپوننت و المان‌ها چگونه متولد و آپدیت می‌شوند، وقت بررسی دقیق دایرکتیوهاست!
         </p>
       </div>
       <router-link
         to="/directives"
-        class="px-4 py-2 bg-surface-card text-primary-text hover:bg-emerald-50 text-xs sm:text-sm font-bold rounded-xl transition-all shadow-xs shrink-0 flex items-center gap-1.5"
+        class="px-4 py-2 bg-white text-emerald-950 hover:bg-emerald-50 hover:text-emerald-900 text-xs sm:text-sm font-bold rounded-xl transition-all shadow-sm shrink-0 flex items-center gap-1.5 cursor-pointer"
       >
         <span>رفتن به بخش دستورها (Directives)</span>
         <ArrowLeft class="w-4 h-4" />

@@ -13,11 +13,25 @@ const tokensCssCode = `@import "tailwindcss";
   --color-brand-500: #10b981;
   --color-brand-600: #059669;
   
-  /* توکن معنایی */
+  /* توکن معنایی برند */
   --color-primary: var(--color-brand-500);
+
+  /* توکن‌های وضعیت و بازخورد */
+  --color-danger-surface: #fff1f2;
+  --color-danger-text: #9f1239;
+  --color-success-surface: #ecfdf5;
+  --color-success-text: #065f46;
 
   /* توکن گردی */
   --radius-card: 1rem;
+}
+
+/* تطبیق خودکار با دارک‌مود بدون دست‌زدن به مارک‌آپ HTML */
+.dark {
+  --color-danger-surface: rgb(244 63 94 / 0.14);
+  --color-danger-text: #fda4af;
+  --color-success-surface: rgb(16 185 129 / 0.14);
+  --color-success-text: #6ee7b7;
 }`
 
 const brandTokens = [
@@ -40,6 +54,37 @@ const semanticTokens = [
   { label: 'حاشیه ظریف (Border Subtle)', token: '--color-border-subtle', usage: 'border-border-subtle' },
   { label: 'متن اصلی (Text Main)', token: '--color-text-main', usage: 'text-text-main' },
   { label: 'متن کم‌رنگ (Text Muted)', token: '--color-text-muted', usage: 'text-text-muted' },
+]
+
+const statusTokens = [
+  {
+    label: 'خطا / Danger',
+    token: '--color-danger-*',
+    surfaceClass: 'bg-danger-surface border-danger-border text-danger-text',
+    subtle: 'text-danger-subtle',
+    desc: 'نمایش خطاها و شرایط بحرانی با کنتراست تضمین‌شده در هر دو تم',
+  },
+  {
+    label: 'موفقیت / Success',
+    token: '--color-success-*',
+    surfaceClass: 'bg-success-surface border-success-border text-success-text',
+    subtle: 'text-success-subtle',
+    desc: 'نمایش وضعیت‌های مثبت و موفقیت‌آمیز بودن عملیات‌ها',
+  },
+  {
+    label: 'هشدار / Warning',
+    token: '--color-warning-*',
+    surfaceClass: 'bg-warning-surface border-warning-border text-warning-text',
+    subtle: 'text-warning-text',
+    desc: 'نمایش خطرات احتمالی و نکات مراقبتی',
+  },
+  {
+    label: 'اطلاعات / Info',
+    token: '--color-info-*',
+    surfaceClass: 'bg-info-surface border-info-border text-info-text',
+    subtle: 'text-info-text',
+    desc: 'نمایش پیام‌های کمکی، نکات و مستندات',
+  },
 ]
 
 async function copyText(text) {
@@ -174,6 +219,37 @@ async function copyText(text) {
             <span class="text-[10px] text-text-subtle font-mono">9999px (کامل گرد)</span>
           </div>
         </div>
+      </template>
+    </ConceptCard>
+
+    <!-- توکن‌های وضعیت و فیدبک -->
+    <ConceptCard
+      title="۴. توکن‌های وضعیت و بازخورد (Status Tokens)"
+      badge="معماری دسترس‌پذیری و تم"
+      description="این توکن‌ها برای نمایش شرایط خطا، هشدار، موفقیت و اطلاعات طراحی شده‌اند تا در هر دو حالت روشن و تاریک، کنتراست متن‌ها و حاشیه‌ها تضمین شود."
+    >
+      <template #demo>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div
+            v-for="item in statusTokens"
+            :key="item.token"
+            :class="['p-3.5 rounded-xl border flex flex-col justify-between space-y-2', item.surfaceClass]"
+          >
+            <div class="flex items-center justify-between">
+              <h3 class="text-xs font-bold">{{ item.label }}</h3>
+              <code class="text-[10px] font-mono opacity-80">{{ item.token }}</code>
+            </div>
+            <p :class="['text-xs leading-relaxed', item.subtle]">
+              {{ item.desc }}
+            </p>
+          </div>
+        </div>
+      </template>
+
+      <template #callout>
+        <CalloutBox type="under-the-hood" title="چرا توکن‌های وضعیت جداگانه ضروری هستند؟">
+          استفاده مستقیم از کلاس‌هایی مانند <code>text-rose-900</code> یا <code>bg-rose-50</code> بدون نسخه دارک‌مود، کنتراست را در حالت تاریک به ۱.۲:۱ کاهش می‌دهد و متن نامرئی می‌شود. با تعریف توکن‌های معنایی مثل <code>bg-danger-surface</code> و <code>text-danger-text</code>، تغییر تم به شکل خودکار و طبق استاندارد WCAG AA انجام می‌پذیرد.
+        </CalloutBox>
       </template>
     </ConceptCard>
   </div>

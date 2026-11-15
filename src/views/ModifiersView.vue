@@ -292,7 +292,7 @@ function handleEnterSubmit() {
                   class="w-full px-2.5 py-1 border border-border-medium rounded text-xs mb-1 bg-surface-card focus:outline-brand-500"
                 />
                 <div class="text-[11px] font-mono text-text-body">
-                  نوع: <b class="text-rose-600">{{ typeof normalInputVal }}</b> | مقدار: <b class="text-text-main">"{{ normalInputVal }}"</b>
+                  نوع: <b class="text-rose-600 dark:text-rose-400">{{ typeof normalInputVal }}</b> | مقدار: <b class="text-text-main">"{{ normalInputVal }}"</b>
                 </div>
               </div>
 
@@ -346,16 +346,16 @@ function handleEnterSubmit() {
     </ConceptCard>
 
     <!-- کلید راهنمای صفحه بعدی -->
-    <div class="mt-8 p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-500 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+    <div class="mt-8 p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-500 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm border border-emerald-500/20">
       <div>
         <h2 class="font-bold text-base">اصلاح‌کننده‌ها را مسلط شدید؟</h2>
-        <p class="text-xs sm:text-sm text-emerald-100 dark:text-emerald-300 mt-0.5">
+        <p class="text-xs sm:text-sm text-emerald-50 mt-0.5">
           حالا به بخش مقایسه‌ها و تفاوت‌های چالش‌برانگیز (مثل <code>v-if</code> در برابر <code>v-show</code>) برویم.
         </p>
       </div>
       <router-link
         to="/compare"
-        class="px-4 py-2 bg-surface-card text-primary-text hover:bg-emerald-50 text-xs sm:text-sm font-bold rounded-xl transition-all shadow-xs shrink-0 flex items-center gap-1.5"
+        class="px-4 py-2 bg-white text-emerald-950 hover:bg-emerald-50 hover:text-emerald-900 text-xs sm:text-sm font-bold rounded-xl transition-all shadow-sm shrink-0 flex items-center gap-1.5 cursor-pointer"
       >
         <span>رفتن به بخش تفاوت‌ها و مقایسه‌ها</span>
         <ArrowLeft class="w-4 h-4" />

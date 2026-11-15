@@ -209,7 +209,7 @@ const isShowVisible = ref(true)
                 <button
                   @click="isShowVisible = !isShowVisible"
                   type="button"
-                  class="px-2.5 py-1 text-xs font-bold rounded-lg bg-primary-light text-primary-text hover:bg-emerald-100 cursor-pointer border border-emerald-200 dark:border-emerald-500/30 transition-colors min-h-9"
+                  class="px-2.5 py-1 text-xs font-bold rounded-lg bg-primary-light text-primary-text hover:bg-emerald-100 dark:hover:bg-emerald-500/20 cursor-pointer border border-emerald-200 dark:border-emerald-500/30 transition-colors min-h-9"
                 >
                   {{ isShowVisible ? 'مخفی با CSS' : 'نمایش مجدد' }}
                 </button>
@@ -251,7 +251,7 @@ const isShowVisible = ref(true)
                   <th class="p-2.5 text-primary-text font-mono">v-show</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-slate-100 bg-surface-card">
+              <tbody class="divide-y divide-border-subtle bg-surface-card">
                 <tr>
                   <td class="p-2.5 font-bold text-text-body">وضعیت در درخت DOM</td>
                   <td class="p-2.5 text-text-body">کاملاً حذف و بازسازی می‌شود</td>
@@ -297,16 +297,16 @@ const isShowVisible = ref(true)
     </ConceptCard>
 
     <!-- کلید بازگشت یا رفتن به ویترین توکن‌ها -->
-    <div class="mt-8 p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-500 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+    <div class="mt-8 p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-500 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm border border-emerald-500/20">
       <div>
         <h2 class="font-bold text-base">علاقه‌مند به یادگیری دیزاین سیستم هستید؟</h2>
-        <p class="text-xs sm:text-sm text-emerald-100 dark:text-emerald-300 mt-0.5">
+        <p class="text-xs sm:text-sm text-emerald-50 mt-0.5">
           ببینید چطور Tailwind CSS v4 با سیستم Design Tokens این تم زیبا را با سرعت بالا تولید کرده است.
         </p>
       </div>
       <router-link
         to="/tokens"
-        class="px-4 py-2 bg-surface-card text-primary-text hover:bg-emerald-50 text-xs sm:text-sm font-bold rounded-xl transition-all shadow-xs shrink-0 flex items-center gap-1.5"
+        class="px-4 py-2 bg-white text-emerald-950 hover:bg-emerald-50 hover:text-emerald-900 text-xs sm:text-sm font-bold rounded-xl transition-all shadow-sm shrink-0 flex items-center gap-1.5 cursor-pointer"
       >
         <span>مشاهده ویترین دیزاین توکن‌ها</span>
         <ArrowLeft class="w-4 h-4" />

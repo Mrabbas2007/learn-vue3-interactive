@@ -28,7 +28,7 @@ function incrementRef() {
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <!-- تست متغیر معمولی (غیر واکنش‌پذیر) -->
-    <div class="bg-surface-card p-4 rounded-xl border border-rose-200/90 shadow-2xs flex flex-col justify-between">
+    <div class="bg-surface-card p-4 rounded-xl border border-rose-200/90 dark:border-rose-500/30 shadow-2xs flex flex-col justify-between">
       <div>
         <h3 class="font-bold text-sm text-rose-700 dark:text-rose-300 mb-2 flex items-center gap-1.5">
           <XCircle class="w-4 h-4 text-rose-500 shrink-0" />
@@ -60,7 +60,7 @@ function incrementRef() {
     </div>
 
     <!-- تست متغیر ref (واکنش‌پذیر) -->
-    <div class="bg-surface-card p-4 rounded-xl border border-emerald-200/90 shadow-2xs flex flex-col justify-between">
+    <div class="bg-surface-card p-4 rounded-xl border border-emerald-200/90 dark:border-emerald-500/30 shadow-2xs flex flex-col justify-between">
       <div>
         <h3 class="font-bold text-sm text-primary-text mb-2 flex items-center gap-1.5">
           <CheckCircle2 class="w-4 h-4 text-primary-text shrink-0" />

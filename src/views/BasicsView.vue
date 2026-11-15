@@ -333,16 +333,16 @@ const manualModelDemo = ref('سلام دنیا')
     </ConceptCard>
 
     <!-- کلید راهنمای صفحه بعدی -->
-    <div class="mt-8 p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-500 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+    <div class="mt-8 p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-500 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm border border-emerald-500/20">
       <div>
         <h2 class="font-bold text-base">مفاهیم پایه را یاد گرفتید؟</h2>
-        <p class="text-xs sm:text-sm text-emerald-100 dark:text-emerald-300 mt-0.5">
+        <p class="text-xs sm:text-sm text-emerald-50 mt-0.5">
           حالا آماده‌اید که دستورهای قدرتمند (Directives) و نحوه ساخت دایرکتیو سفارشی را یاد بگیرید.
         </p>
       </div>
       <router-link
         to="/lifecycle"
-        class="px-4 py-2 bg-surface-card text-primary-text hover:bg-emerald-50 text-xs sm:text-sm font-bold rounded-xl transition-all shadow-xs shrink-0 flex items-center gap-1.5"
+        class="px-4 py-2 bg-white text-emerald-950 hover:bg-emerald-50 hover:text-emerald-900 text-xs sm:text-sm font-bold rounded-xl transition-all shadow-sm shrink-0 flex items-center gap-1.5 cursor-pointer"
       >
         <span>رفتن به بخش چرخه‌ی حیات (Lifecycle)</span>
         <ArrowLeft class="w-4 h-4" />

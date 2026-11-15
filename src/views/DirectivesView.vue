@@ -124,7 +124,7 @@ function removeFruit(id) {
               :class="[
                 'px-3 py-1 text-xs font-bold rounded-lg transition-colors cursor-pointer border',
                 statusType === type
-                  ? 'bg-slate-900 text-white border-slate-900'
+                  ? 'bg-slate-900 text-white border-slate-900 dark:bg-emerald-600 dark:border-emerald-500'
                   : 'bg-surface-card text-text-body border-border-medium hover:bg-surface-hover',
               ]"
             >
@@ -139,11 +139,11 @@ function removeFruit(id) {
               <span>عملیات با موفقیت انجام شد (شرط v-if برقرار است)</span>
             </div>
             <div v-else-if="statusType === 'warning'" class="text-amber-700 dark:text-amber-300 font-semibold flex items-center gap-2">
-              <AlertTriangle class="w-4 h-4 text-amber-600 shrink-0" />
+              <AlertTriangle class="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
               <span>هشدار: مشکلی در سیستم وجود دارد (شرط v-else-if برقرار است)</span>
             </div>
             <div v-else class="text-rose-700 dark:text-rose-300 font-semibold flex items-center gap-2">
-              <XCircle class="w-4 h-4 text-rose-600 shrink-0" />
+              <XCircle class="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0" />
               <span>خطا رخ داده است (شرط v-else برقرار است)</span>
             </div>
           </div>
@@ -200,7 +200,7 @@ function removeFruit(id) {
               <button
                 @click="removeFruit(fruit.id)"
                 type="button"
-                class="text-xs text-rose-500 hover:text-rose-700 hover:bg-rose-50 px-2 py-1 rounded transition-colors cursor-pointer flex items-center gap-1"
+                class="text-xs text-rose-500 hover:text-rose-700 dark:hover:text-rose-300 hover:bg-rose-50 dark:hover:bg-rose-500/20 px-2 py-1 rounded transition-colors cursor-pointer flex items-center gap-1"
               >
                 <Trash2 class="w-3.5 h-3.5" />
                 <span>حذف</span>
@@ -244,7 +244,7 @@ function removeFruit(id) {
             </button>
             <span class="text-xs text-text-body">
               وضعیت متغیر isButtonActive:
-              <b :class="isButtonActive ? 'text-primary-text' : 'text-rose-600'">
+              <b :class="isButtonActive ? 'text-primary-text' : 'text-rose-600 dark:text-rose-400'">
                 {{ isButtonActive }}
               </b>
             </span>
@@ -255,7 +255,7 @@ function removeFruit(id) {
             :class="[
               'p-4 rounded-xl border text-sm transition-all duration-300',
               isButtonActive
-                ? 'bg-primary-light border-emerald-300 text-emerald-900 shadow-sm'
+                ? 'bg-primary-light border-emerald-300 dark:border-emerald-500/30 text-emerald-950 dark:text-emerald-200 shadow-sm'
                 : 'bg-surface-subtle border-border-subtle text-text-muted',
             ]"
           >
@@ -353,16 +353,16 @@ function removeFruit(id) {
     </ConceptCard>
 
     <!-- کلید راهنمای صفحه بعدی -->
-    <div class="mt-8 p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-500 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+    <div class="mt-8 p-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-500 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm border border-emerald-500/20">
       <div>
         <h2 class="font-bold text-base">دستورها را آموختید؟</h2>
-        <p class="text-xs sm:text-sm text-emerald-100 dark:text-emerald-300 mt-0.5">
+        <p class="text-xs sm:text-sm text-emerald-50 mt-0.5">
           اکنون زمان بررسی جادوی اصلاح‌کننده‌ها (Modifiers) مثل <code>@click.stop</code> و <code>v-model.lazy</code> است.
         </p>
       </div>
       <router-link
         to="/modifiers"
-        class="px-4 py-2 bg-surface-card text-primary-text hover:bg-emerald-50 text-xs sm:text-sm font-bold rounded-xl transition-all shadow-xs shrink-0 flex items-center gap-1.5"
+        class="px-4 py-2 bg-white text-emerald-950 hover:bg-emerald-50 hover:text-emerald-900 text-xs sm:text-sm font-bold rounded-xl transition-all shadow-sm shrink-0 flex items-center gap-1.5 cursor-pointer"
       >
         <span>رفتن به بخش اصلاح‌کننده‌ها (Modifiers)</span>
         <ArrowLeft class="w-4 h-4" />

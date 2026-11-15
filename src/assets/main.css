@@ -64,6 +64,27 @@
   --color-code-border: #1e293b;
 
   /* ========================================================
+     توکن‌های وضعیت و بازخورد (Semantic Status Tokens)
+     ======================================================== */
+  --color-danger-surface: #fff1f2;
+  --color-danger-border: #fecdd3;
+  --color-danger-text: #9f1239;
+  --color-danger-subtle: #be123c;
+
+  --color-success-surface: #ecfdf5;
+  --color-success-border: #a7f3d0;
+  --color-success-text: #065f46;
+  --color-success-subtle: #047857;
+
+  --color-warning-surface: #fffbeb;
+  --color-warning-border: #fde68a;
+  --color-warning-text: #92400e;
+
+  --color-info-surface: #f0f9ff;
+  --color-info-border: #bae6fd;
+  --color-info-text: #075985;
+
+  /* ========================================================
      توکن‌های تایپوگرافی (Typography Tokens)
      ======================================================== */
   --font-sans:
@@ -111,6 +132,24 @@
 
   --color-code-bg: #060a12;
   --color-code-border: #24314b;
+
+  --color-danger-surface: rgb(244 63 94 / 0.14);
+  --color-danger-border: rgb(244 63 94 / 0.32);
+  --color-danger-text: #fda4af;
+  --color-danger-subtle: #fecdd3;
+
+  --color-success-surface: rgb(16 185 129 / 0.14);
+  --color-success-border: rgb(16 185 129 / 0.32);
+  --color-success-text: #6ee7b7;
+  --color-success-subtle: #a7f3d0;
+
+  --color-warning-surface: rgb(245 158 11 / 0.14);
+  --color-warning-border: rgb(245 158 11 / 0.32);
+  --color-warning-text: #fcd34d;
+
+  --color-info-surface: rgb(14 165 233 / 0.14);
+  --color-info-border: rgb(14 165 233 / 0.32);
+  --color-info-text: #7dd3fc;
 
   --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.5);
   --shadow-card-hover:

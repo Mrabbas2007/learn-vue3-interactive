@@ -156,7 +156,7 @@ const chapters = [
             </router-link>
             <router-link
               to="/lifecycle"
-              class="px-6 py-3.5 bg-surface-card hover:bg-slate-50 text-text-body font-bold text-sm rounded-xl border border-border-subtle transition-all shadow-2xs hover:border-emerald-300 flex items-center gap-2 cursor-pointer"
+              class="px-6 py-3.5 bg-surface-card hover:bg-slate-50 dark:hover:bg-surface-hover text-text-body font-bold text-sm rounded-xl border border-border-subtle transition-all shadow-2xs hover:border-emerald-300 dark:hover:border-emerald-500/30 flex items-center gap-2 cursor-pointer"
             >
               <Activity class="w-4 h-4 text-primary-text" />
               <span>شبیه‌ساز چرخه‌ی حیات</span>
@@ -214,7 +214,7 @@ const chapters = [
           v-for="ch in chapters"
           :key="ch.path"
           :to="ch.path"
-          class="group relative bg-surface-card border border-slate-200/90 rounded-2xl p-6 transition-all duration-200 hover:shadow-lg hover:border-emerald-300 hover:-translate-y-0.5 flex flex-col justify-between"
+          class="group relative bg-surface-card border border-border-subtle rounded-2xl p-6 transition-all duration-200 hover:shadow-lg hover:border-emerald-300 dark:hover:border-emerald-500/40 hover:-translate-y-0.5 flex flex-col justify-between"
         >
           <div>
             <!-- هدر کارت فصل -->
@@ -238,7 +238,7 @@ const chapters = [
 
             <!-- عنوان و متن -->
             <h3
-              class="text-base font-bold text-text-main group-hover:text-emerald-700 transition-colors mb-2"
+              class="text-base font-bold text-text-main group-hover:text-primary-text transition-colors mb-2"
             >
               {{ ch.title }}
             </h3>

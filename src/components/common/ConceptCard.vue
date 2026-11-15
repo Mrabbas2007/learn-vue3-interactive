@@ -16,7 +16,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="bg-surface-card border border-slate-200/90 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow duration-200 mb-6">
+  <div class="bg-surface-card border border-border-subtle rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow duration-200 mb-6">
     <!-- هدر کارت -->
     <div class="flex flex-wrap items-center justify-between gap-2 border-b border-border-subtle pb-3 mb-4">
       <div class="flex items-center gap-2.5">

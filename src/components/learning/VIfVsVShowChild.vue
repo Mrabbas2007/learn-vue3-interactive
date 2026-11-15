@@ -49,13 +49,13 @@ onUnmounted(() => {
         :class="[
           'w-full px-2.5 py-1.5 border rounded-lg bg-surface-card text-xs focus:outline-none',
           type === 'if'
-            ? 'border-rose-300 focus:ring-1 focus:ring-rose-400'
-            : 'border-emerald-300 focus:ring-1 focus:ring-emerald-400',
+            ? 'border-rose-300 dark:border-rose-500/40 focus:ring-1 focus:ring-rose-400'
+            : 'border-emerald-300 dark:border-emerald-500/40 focus:ring-1 focus:ring-emerald-400',
         ]"
       />
     </div>
 
-    <div class="flex items-center justify-between pt-1 border-t border-black/5">
+    <div class="flex items-center justify-between pt-1 border-t border-black/5 dark:border-white/10">
       <button
         @click="counter++"
         type="button"
